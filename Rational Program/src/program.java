@@ -3,8 +3,11 @@ public class program {
 	public static void main(String[] args)
 	{
 		Rational num1 = new Rational(1, 2);
+		Rational num = new Rational(1, 2);
+		if(!num1.equals(num))
+			System.exit(0);;
 		Rational num2 = new Rational(2, 3);
-		
+	
 		System.out.println(num1.add(num2));
 		System.out.println(num1.subtract(num2));
 		System.out.println(num1.divide(num2));
@@ -27,7 +30,7 @@ public class program {
 		System.out.println(num2);
 		System.out.println(num3);
 		System.out.println(num4);
-		
+				
 		num3.numerToOne();
 		System.out.println("\n"+num1);
 		System.out.println(num2);

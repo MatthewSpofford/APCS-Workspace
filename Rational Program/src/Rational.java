@@ -5,7 +5,7 @@
 //  Represents one rational number with a numerator and denominator.
 //********************************************************************
 
-public class Rational
+public class Rational implements Comparable<Rational>
 {
    private int numerator, denominator;
 
@@ -189,5 +189,31 @@ public class Rational
    public void numerToOne()
    {
 	   this.numerator = 1;
+   }
+   
+   @Override
+   public boolean equals(Object obj)
+   {
+	   if(obj == this)
+		   return true;
+	   
+	   if (obj instanceof Rational) 
+	   {
+		   Rational new_name = (Rational) obj;
+		   if(this.numerator == new_name.numerator && 
+			  this.denominator == new_name.denominator)
+			   return true;
+		   else
+			   return false;
+	   }
+	   else
+		   return false;
+   }
+
+   @Override
+   public int compareTo(Rational o) {
+	   double obj1 = this.numerator/this.denominator;
+	   double obj2 = o.numerator/o.denominator;
+	   return 0;
    }
 }
