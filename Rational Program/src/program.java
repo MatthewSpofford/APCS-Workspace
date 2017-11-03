@@ -5,9 +5,12 @@ public class program {
 		Rational num1 = new Rational(1, 2);
 		Rational num = new Rational(1, 2);
 		if(!num1.equals(num))
-			System.exit(0);;
+			System.exit(0);
 		Rational num2 = new Rational(2, 3);
 	
+		System.out.println(num1.compareTo(num2));
+		System.out.println(num1.toDouble());
+		
 		System.out.println(num1.add(num2));
 		System.out.println(num1.subtract(num2));
 		System.out.println(num1.divide(num2));
