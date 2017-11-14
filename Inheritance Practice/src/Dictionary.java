@@ -1,17 +1,22 @@
 
 public class Dictionary extends Book{
 
-	private int pages;
 	private int words;
 	public Dictionary(int pages, int words)
 	{
 		super(pages, "Dictionary", "Webster");
-		this.pages = pages;
 		this.words = words;
 	}
 	
-	public double getWrdPerPage()
+	@Override
+	public void pageMessage()
 	{
-		return words / pages;
+		System.out.println("Number of pages: " + getPages());
+		System.out.println("Words per Page: " + getWrdPerPage());
+	}
+	
+	private double getWrdPerPage()
+	{
+		return words / getPages();
 	}
 }

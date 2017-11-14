@@ -12,6 +12,11 @@ public class Book {
 		this.pages = pages;
 	}
 	
+	public void pageMessage()
+	{
+		System.out.println("Number of pages: " + pages);
+	}
+	
 	public int getPages()
 	{
 		return pages;
