@@ -19,4 +19,26 @@ public class Dictionary extends Book{
 	{
 		return words / getPages();
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getTitle() + ", " + getAuthor() + ", " + getPages() + ", " + words;
+	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		if(super.equals(obj))
+		{
+			if(getClass() == obj.getClass())
+			{
+				Dictionary temp = (Dictionary) obj;
+				if(words == temp.words)
+					return true;
+			}
+		}
+		
+		return false;
+	}
 }
