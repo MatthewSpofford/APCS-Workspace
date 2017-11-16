@@ -1,5 +1,5 @@
 
-public class Book {
+abstract class Book {
 
 	private int pages;
 	private String title = "";
@@ -12,22 +12,19 @@ public class Book {
 		this.pages = pages;
 	}
 	
-	public void pageMessage()
-	{
-		System.out.println("Number of pages: " + pages);
-	}
+	abstract public void pageMessage();
 	
-	public int getPages()
+	final public int getPages()
 	{
 		return pages;
 	}
 	
-	public String getTitle()
+	final public String getTitle()
 	{
 		return title;
 	}
 	
-	public String getAuthor()
+	final public String getAuthor()
 	{
 		return author;
 	}

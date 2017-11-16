@@ -7,8 +7,7 @@ public class Words {
 		Dictionary weby = new Dictionary(600, 1300);
 		Novel book2 = new Novel(600, "The Book", "SciFi", "Me");
 		Novel book = new Novel(600, "The Book", "SciFi", "Me");
-		
-		
+	
 		System.out.println(webster.equals(weby));
 		System.out.println(webster.equals(book2));
 		System.out.println(book2.equals(book));
