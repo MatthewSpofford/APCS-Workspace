@@ -9,6 +9,11 @@ public class Novel extends Book{
 		this.genre = genre;
 	}
 	
+	public String getGenre()
+	{
+		return genre;
+	}
+	
 	@Override
 	public void pageMessage()
 	{

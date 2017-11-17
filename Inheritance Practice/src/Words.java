@@ -30,7 +30,7 @@ public class Words {
 		{
 			temp.pageMessage();
 		}
-		
+		System.out.println(((Novel)library[2]).getGenre());
 		
 	}
 }
