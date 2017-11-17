@@ -1,5 +1,5 @@
 
-abstract class Book {
+public abstract class Book {
 
 	private int pages;
 	private String title = "";
