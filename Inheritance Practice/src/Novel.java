@@ -1,5 +1,5 @@
 
-public class Novel extends Book{
+public class Novel extends Book implements Online{
 	
 	private String genre;
 	
@@ -40,6 +40,12 @@ public class Novel extends Book{
 			}
 		}
 		
+		return false;
+	}
+	
+	@Override
+	public boolean isOnline()
+	{
 		return false;
 	}
 }

@@ -30,7 +30,18 @@ public class Words {
 		{
 			temp.pageMessage();
 		}
-		System.out.println(((Novel)library[2]).getGenre());
+		System.out.println(((Novel)library[2]).getGenre() + "\n\n");
 		
+		Online[] onlineLib = new Online[4];
+		
+		onlineLib[0] = book;
+		onlineLib[1] = weby;
+		onlineLib[2] = webster;
+		onlineLib[3] = book2;
+		
+		for(Online temp : onlineLib)
+		{
+			System.out.println(temp.isOnline());
+		}
 	}
 }

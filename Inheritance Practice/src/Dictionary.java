@@ -1,5 +1,5 @@
 
-public class Dictionary extends Book{
+public class Dictionary extends Book implements Online{
 
 	private int words;
 	public Dictionary(int pages, int words)
@@ -40,5 +40,11 @@ public class Dictionary extends Book{
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public boolean isOnline()
+	{
+		return true;
 	}
 }
