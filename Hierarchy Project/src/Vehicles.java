@@ -14,7 +14,7 @@ public abstract class Vehicles {
 		this.maxSpeed = maxSpeed;
 	}
 	
-	public abstract void move();
+	public abstract void info();
 	
 	/**
 	 * Sets the cost color of a vehicle
@@ -65,5 +65,22 @@ public abstract class Vehicles {
 	public int getYear()
 	{
 		return year;
+	}
+	
+	/**
+	 * Sets the name for a vehicle
+	 * @param val Sets the name to the value given
+	 */
+	public void setName(String val)
+	{
+		name = val;
+	}
+	/**
+	 * Outputs the name for a vehicle
+	 * @return Outputs the name
+	 */
+	public String getName()
+	{
+		return name;
 	}
 }

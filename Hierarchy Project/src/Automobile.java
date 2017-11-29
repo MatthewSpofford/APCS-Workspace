@@ -1,14 +1,14 @@
 
 public abstract class Automobile extends Vehicles{
 	
-	public Automobile(String color, double maxSpeed)
+	public Automobile(String name, int year, String color, double maxSpeed)
 	{
-		super(color, maxSpeed);
+		super(name, year, color, maxSpeed);
 	}
 	
 	@Override
-	public void move()
+	public void info()
 	{
-		System.out.println();
+		System.out.println("");
 	}
 }

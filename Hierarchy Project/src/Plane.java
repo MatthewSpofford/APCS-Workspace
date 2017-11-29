@@ -12,7 +12,7 @@ public class Plane extends Automobile implements PublicTransport{
 	}
 	
 	@Override
-	public void move()
+	public void info()
 	{
 		
 	}
