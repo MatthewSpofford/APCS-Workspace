@@ -1,13 +1,29 @@
 public abstract class Automobile extends Vehicles{
 	
-	public Automobile(String name, int year, String color, double maxSpeed)
+	int pistonNum;
+	
+	public Automobile(String name, int year, String color, double maxSpeed, int pistonNum)
 	{
 		super(name, year, color, maxSpeed);
+		this.pistonNum = pistonNum;
 	}
 	
-	@Override
-	public void info()
+	/**
+	 * Sets the number of pistons in an automobile
+	 * @param val Sets the piston number to the value given
+	 */
+	public void setPistonNum(int val)
 	{
-		System.out.println("");
+		if(val < 0)
+			return;
+		pistonNum = val;
+	}
+	/**'
+	 * Returns the number of pistons in an automobile
+	 * @return Returns the number of pistons
+	 */
+	public int getPistonNum()
+	{
+		return pistonNum;
 	}
 }

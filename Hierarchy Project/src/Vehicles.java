@@ -49,6 +49,8 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 	 */
 	public void setMaxSpeed(double val)
 	{
+		if(val < 0)
+			return;
 		maxSpeed = val;
 	}
 	/**
