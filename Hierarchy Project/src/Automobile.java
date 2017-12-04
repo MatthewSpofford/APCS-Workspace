@@ -1,4 +1,3 @@
-
 public abstract class Automobile extends Vehicles{
 	
 	public Automobile(String name, int year, String color, double maxSpeed)

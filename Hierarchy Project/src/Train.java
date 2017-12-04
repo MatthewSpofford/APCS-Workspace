@@ -1,14 +1,12 @@
-
 public class Train extends Vehicles implements PublicTransport{
 
 	private double salePrice;
 	private int maxCapacity;
 	private int occupantNum;
 	
-	
-	public Train(String color, double maxSpeed)
+	public Train(String name, int year, String color,  double maxSpeed)
 	{
-		super(color, maxSpeed);
+		super(name, year, color, maxSpeed);
 	}
 	
 	@Override
@@ -21,6 +19,7 @@ public class Train extends Vehicles implements PublicTransport{
 	 * Sets the sale price for each person in a vehicle
 	 * @param price Sets sale price to value input
 	 */
+	@Override
 	public void setSalePrice(double price)
 	{
 		salePrice = price;
@@ -29,6 +28,7 @@ public class Train extends Vehicles implements PublicTransport{
 	 * Outputs the sale price for each person in a vehicle
 	 * @return Outputs sale price
 	 */
+	@Override
 	public double getSalePrice()
 	{
 		return salePrice;
@@ -38,6 +38,7 @@ public class Train extends Vehicles implements PublicTransport{
 	 * Sets the maximum capacity of people
 	 * @param price Sets the maximum capacity to value input
 	 */
+	@Override
 	public void setMaxCapacity(int maxNum)
 	{
 		maxCapacity = maxNum;
@@ -46,6 +47,7 @@ public class Train extends Vehicles implements PublicTransport{
 	 * Outputs the maximum capacity of people
 	 * @return Outputs the maximum capacity
 	 */
+	@Override
 	public int getMaxCapacity()
 	{
 		return maxCapacity;
@@ -55,6 +57,7 @@ public class Train extends Vehicles implements PublicTransport{
 	 * Sets the number of occupants in a vehicle
 	 * @param price Sets number of occupants to value input
 	 */
+	@Override
 	public void setNumOcc(int num)
 	{
 		occupantNum = num;
@@ -63,6 +66,7 @@ public class Train extends Vehicles implements PublicTransport{
 	 * Outputs the number of occupants in a vehicle
 	 * @return Outputs number of occupants
 	 */
+	@Override
 	public int getNumOcc()
 	{
 		return occupantNum;

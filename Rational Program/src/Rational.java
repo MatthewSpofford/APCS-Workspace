@@ -5,7 +5,7 @@
 //  Represents one rational number with a numerator and denominator.
 //********************************************************************
 
-public class Rational implements Comparable<Rational>, DoubleValue
+public class Rational implements Comparable, DoubleValue
 {
    private int numerator, denominator;
 
@@ -211,9 +211,9 @@ public class Rational implements Comparable<Rational>, DoubleValue
    }
 
    @Override
-   public int compareTo(Rational o) {
+   public int compareTo(Object o) {
 	   double obj1 = this.toDouble();
-	   double obj2 = o.toDouble();
+	   double obj2 = ((Rational)o).toDouble();
 	   
 	   if(obj1 == obj2)
 		   return 0;
