@@ -5,6 +5,7 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 	private int year;
 	private String color;
 	private double maxSpeed;
+	private static int vehiclesMade = 0;
 	
 	/**
 	 * Constructs a vehicle
@@ -19,6 +20,7 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 		this.year = year;
 		this.color = color;
 		this.maxSpeed = maxSpeed;
+		vehiclesMade += 1;
 	}
 	
 	/**
@@ -41,6 +43,15 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 	public String getColor()
 	{
 		return color;
+	}
+	
+	/**
+	 * Outputs the number of vehicles created
+	 * @return Outputs amount made
+	 */
+	public static int getNumVehiclesMade()
+	{
+		return vehiclesMade;
 	}
 	
 	/**

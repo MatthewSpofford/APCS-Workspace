@@ -14,7 +14,7 @@ public class ElectricCar extends Automobile{
 	 * Display info about the current vehicle
 	 */
 	public void info() {
-
+		
 	}
 
 	/**
