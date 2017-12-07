@@ -10,7 +10,6 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 	/**
 	 * Constructs a vehicle
 	 * @param name Stores the given brand name of a vehicle
-	 * @param year Stores the year the vehicle was made
 	 * @param color Represents the color of the vehicle
 	 * @param maxSpeed Represents the maximum speed of the vehicle
 	 */

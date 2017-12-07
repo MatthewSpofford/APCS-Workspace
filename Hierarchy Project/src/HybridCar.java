@@ -12,6 +12,6 @@ public class HybridCar extends ElectricCar {
 	 * Display info about the current vehicle
 	 */
 	public void info() {
-
+		
 	}
 }

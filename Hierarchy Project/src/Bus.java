@@ -1,7 +1,7 @@
 
 public class Bus extends Automobile implements PublicTransport {
 
-	private double salePrice;
+	private final double salePrice = 1.22;
 	private int maxCapacity;
 	private int occupantNum;
 	
