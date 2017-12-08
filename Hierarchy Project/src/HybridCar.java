@@ -1,6 +1,18 @@
 
+/**
+ * Is used to store information and create a hydrid car object
+ * @author Matthew Spofford
+ */
 public class HybridCar extends ElectricCar {
 	
+	/**
+	 * Creates a hybrid car object using the base electric car data
+	 * @param name Sets the name data as a string
+	 * @param color Sets the color data as a string
+	 * @param maxSpeed Sets the maximum speed of the vehicle (mph)
+	 * @param pistonNum Sets the number of pistons of the automobile
+	 * @param batterySize Sets the size of the battery (kWh)
+	 */
 	public HybridCar(String name, String color, double maxSpeed, int pistonNum, double batterySize)
 	{
 		super(name, color, maxSpeed, batterySize);
@@ -13,7 +25,7 @@ public class HybridCar extends ElectricCar {
 	@Override
 	public void info()
 	{
-		System.out.println("~Beep Beep!!!\n" + infoHelper());
+		System.out.println(infoHelper());
 	}
 	
 	/**
@@ -23,11 +35,12 @@ public class HybridCar extends ElectricCar {
 	private String infoHelper()
 	{
 		return
-				"Vehicle: Hybrid Car" + "\n" + 
+				"~Beep Beep!!!\n" + 
+				"Vehicle: Hybrid Car\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +
-				"Maximum Speed: " + getMaxSpeed() + "\n" +
-				"Battery Size: " + getBatterySize() + "\n" +
+				"Maximum Speed: " + getMaxSpeed() + "mph\n" +
+				"Battery Size: " + getBatterySize() + "kWh\n" +
 				"Piston Count: " + getPistonNum() + "\n";
 	}
 

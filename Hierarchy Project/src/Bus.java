@@ -26,7 +26,7 @@ public class Bus extends Automobile implements PublicTransport {
 	@Override
 	public void info()
 	{
-		System.out.println("~Honk Honk!!!\n" + infoHelper());
+		System.out.println(infoHelper());
 	}
 	
 	/**
@@ -36,6 +36,7 @@ public class Bus extends Automobile implements PublicTransport {
 	private String infoHelper()
 	{
 		return
+				"~Honk Honk!!!\n" + 
 				"Vehicle: Bus" + "\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +

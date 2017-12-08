@@ -13,11 +13,27 @@ public class GasCar extends Automobile {
 		super(name, color, maxSpeed, pistonNum);
 	}
 	
-	@Override
 	/**
 	 * Display info about the current vehicle
 	 */
-	public void info() {
-
+	@Override
+	public void info()
+	{
+		System.out.println(infoHelper());
+	}
+	
+	/**
+	 * Helps the info method with printing the output
+	 * @return Returns the output of the info method
+	 */
+	private String infoHelper()
+	{
+		return
+				"~Beep Beep!!!\n" + 
+				"Vehicle: Gas Car" + "\n" + 
+				"Model: " + getName() + "\n" + 
+				"Color: " + getColor() + "\n" +
+				"Maximum Speed: " + getMaxSpeed() + "\n" +
+				"Piston Count: " + getPistonNum() + "\n";
 	}
 }

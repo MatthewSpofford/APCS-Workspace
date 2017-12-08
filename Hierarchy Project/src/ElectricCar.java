@@ -7,8 +7,8 @@ public class ElectricCar extends Automobile{
 	 * Creates a gas car object using the base automobile data, along with battery size
 	 * @param name Sets the name data as a string
 	 * @param color Sets the color data as a string
-	 * @param maxSpeed Sets the maximum speed of the vehicle
-	 * @param batterySize Sets the size of the battery of the vehicle
+	 * @param maxSpeed Sets the maximum speed of the vehicle (mph)
+	 * @param batterySize Sets the size of the battery of the vehicle (kWh)
 	 */
 	public ElectricCar(String name, String color, double maxSpeed, double batterySize)
 	{
@@ -22,7 +22,7 @@ public class ElectricCar extends Automobile{
 	@Override
 	public void info()
 	{
-		System.out.println("~Beep Beep!!!\n" + infoHelper());
+		System.out.println(infoHelper());
 	}
 	
 	/**
@@ -32,6 +32,7 @@ public class ElectricCar extends Automobile{
 	private String infoHelper()
 	{
 		return
+				"~Beep Beep!!!\n" + 
 				"Vehicle: Hybrid Car" + "\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +

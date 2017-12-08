@@ -2,13 +2,12 @@
 public class Motorbike extends Bike{
 
 	/**
-	 * 
-	 * @param name
-	 * @param year
-	 * @param color
-	 * @param maxSpeed
+	 * Creates a motorbike object using the base bike data
+	 * @param name Sets the name data as a string
+	 * @param color Sets the color data as a string
+	 * @param maxSpeed Sets the maximum speed of the vehicle
 	 */
-	public Motorbike(String name, int year, String color, double maxSpeed) {
+	public Motorbike(String name, String color, double maxSpeed) {
 		super(name, color);
 		setMaxSpeed(maxSpeed);
 	}
@@ -19,7 +18,7 @@ public class Motorbike extends Bike{
 	@Override
 	public void info()
 	{
-		System.out.println("~Beep Beep!!!\n" + infoHelper());
+		System.out.println(infoHelper());
 	}
 	
 	/**
@@ -29,10 +28,10 @@ public class Motorbike extends Bike{
 	private String infoHelper()
 	{
 		return
-				"Vehicle: Hybrid Car" + "\n" + 
+				"~Vroom Vroom!!!\n" +
+				"Vehicle: Motorbike\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +
-				"Maximum Speed: " + getMaxSpeed() + "\n" +
-				"
+				"Maximum Speed: " + getMaxSpeed() + "\n";
 	}
 }

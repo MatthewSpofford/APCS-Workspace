@@ -1,3 +1,9 @@
+
+/**
+ * 
+ * @author Matthew Spofford
+ *
+ */
 public abstract class Automobile extends Vehicles{
 	
 	int pistonNum;
