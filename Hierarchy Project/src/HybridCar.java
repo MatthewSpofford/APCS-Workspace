@@ -1,17 +1,34 @@
 
 public class HybridCar extends ElectricCar {
 	
-	public HybridCar(String name, int year, String color, double maxSpeed, int pistonNum, double batterySize)
+	public HybridCar(String name, String color, double maxSpeed, int pistonNum, double batterySize)
 	{
-		super(name, year, color, maxSpeed, batterySize);
+		super(name, color, maxSpeed, batterySize);
 		this.setPistonNum(pistonNum);
 	}
 	
-	@Override
 	/**
 	 * Display info about the current vehicle
 	 */
-	public void info() {
-		
+	@Override
+	public void info()
+	{
+		System.out.println("~Beep Beep!!!\n" + infoHelper());
 	}
+	
+	/**
+	 * Helps the info method with printing the output
+	 * @return Returns the output of the info method
+	 */
+	private String infoHelper()
+	{
+		return
+				"Vehicle: Hybrid Car" + "\n" + 
+				"Model: " + getName() + "\n" + 
+				"Color: " + getColor() + "\n" +
+				"Maximum Speed: " + getMaxSpeed() + "\n" +
+				"Battery Size: " + getBatterySize() + "\n" +
+				"Piston Count: " + getPistonNum() + "\n";
+	}
+
 }

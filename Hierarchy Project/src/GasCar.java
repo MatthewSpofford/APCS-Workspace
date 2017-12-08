@@ -1,9 +1,16 @@
 
 public class GasCar extends Automobile {
 
-	public GasCar(String name, int year, String color, double maxSpeed, int pistonNum)
+	/**
+	 * Creates a gas car object using the base automobile data
+	 * @param name Sets the name data as a string
+	 * @param color Sets the color data as a string
+	 * @param maxSpeed Sets the maximum speed of the vehicle
+	 * @param pistonNum Sets the piston count
+	 */
+	public GasCar(String name, String color, double maxSpeed, int pistonNum)
 	{
-		super(name, year, color, maxSpeed, pistonNum);
+		super(name, color, maxSpeed, pistonNum);
 	}
 	
 	@Override
