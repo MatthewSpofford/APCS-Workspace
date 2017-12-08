@@ -2,7 +2,6 @@
 public abstract class Vehicles implements Comparable<Vehicles>{
 	
 	private String name;
-	private int year;
 	private String color;
 	private double maxSpeed;
 	private static int vehiclesMade = 0;
@@ -13,17 +12,18 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 	 * @param color Represents the color of the vehicle
 	 * @param maxSpeed Represents the maximum speed of the vehicle
 	 */
-	public Vehicles(String name, int year, String color, double maxSpeed)
+	public Vehicles(String name, String color, double maxSpeed)
 	{
 		this.name = name;
-		this.year = year;
 		this.color = color;
 		this.maxSpeed = maxSpeed;
 		vehiclesMade += 1;
 	}
 	
 	/**
-	 * Display info about the current vehicle
+	 * Display info about the current vehicle.
+	 * First displays the sound it creates, 
+	 * then the type of vehicle, and then any other needed data
 	 */
 	public abstract void info();
 	
@@ -71,23 +71,7 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 	{
 		return maxSpeed;
 	}
-	
-	/**
-	 * Sets the year for a vehicle
-	 * @param val Sets the year to the value given
-	 */
-	public void setYear(int val)
-	{
-		year = val;
-	}
-	/**
-	 * Outputs the year for a vehicle
-	 * @return Outputs the year
-	 */
-	public int getYear()
-	{
-		return year;
-	}
+
 	
 	/**
 	 * Sets the name for a vehicle
@@ -115,8 +99,7 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 		Vehicles temp = (Vehicles)obj;
 		if(temp.getColor().equals(getColor()) &&
 		   temp.getMaxSpeed() == getMaxSpeed() &&
-		   temp.getName().equals(getName()) &&
-		   temp.getYear() == getYear())
+		   temp.getName().equals(getName()))
 			return true;
 		else
 			return false;
@@ -124,27 +107,24 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 	
 	@Override
 	/**
-	 * Method compares brand name, then year, then color, and then maximum speed
+	 * Method compares brand name, then color, and then maximum speed
 	 */
 	public int compareTo(Vehicles obj)
 	{
+		if(this.equals(obj))
+			return 0;
+		
 		int compare = obj.name.compareTo(this.name);
 		if(compare == 0)
 		{
-			Integer objYear = new Integer(obj.year);
-			Integer tempYear = new Integer(this.year);
 			
-			compare = objYear.compareTo(tempYear);
+			compare = obj.color.compareTo(this.color);
 			if(compare == 0)
 			{
-				compare = obj.color.compareTo(this.color);
-				if(compare == 0)
-				{
-					Double objMaxSp = new Double(obj.maxSpeed);
-					Double tempMaxSp = new Double(this.maxSpeed);
-					
-					compare = objMaxSp.compareTo(tempMaxSp);
-				}
+				Double objMaxSp = new Double(obj.maxSpeed);
+				Double tempMaxSp = new Double(this.maxSpeed);
+				
+				compare = objMaxSp.compareTo(tempMaxSp);
 			}
 		}
 		

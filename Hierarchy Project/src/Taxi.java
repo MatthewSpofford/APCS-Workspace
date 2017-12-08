@@ -2,77 +2,57 @@
 public class Taxi extends Automobile implements PublicTransport {
 
 	private double salePrice;
-	private int maxCapacity;
 	private int occupantNum;
+	private static final String TAXI_COLOR = "Yellow";
 	
-	public Taxi(String name, int year, String color, double maxSpeed, int pistonNum)
+	/**
+	 * Creates a bus object using the base automobile data,  along with sale price and occupancy count.
+	 * The taxi color is set to yellow
+	 * @param name Sets the name data as a string
+	 * @param maxSpeed Sets the maximum speed of the vehicle
+	 * @param salePrice Sets the sale price of the vehicle
+	 * @param occNum Sets the occupancy count
+	 * @param pistonNum Sets the piston count
+	 */
+	public Taxi(String name, double maxSpeed, double salePrice, int occNum, int pistonNum)
 	{
-		super(name, year, color, maxSpeed, pistonNum);
+		super(name, TAXI_COLOR, maxSpeed, pistonNum);
+		this.salePrice = salePrice;
+		occupantNum = occNum;
 	}
 	
-	@Override
 	/**
 	 * Display info about the current vehicle
 	 */
+	@Override
 	public void info()
 	{
-		
+		System.out.println("~Beep Beep!!!\n" + infoHelper());
 	}
 	
 	/**
-	 * Sets the sale price for each person in a vehicle
-	 * @param price Sets sale price to value input
+	 * Helps the info method with printing the output
+	 * @return Returns the output of the info method
 	 */
-	@Override
-	public void setSalePrice(double price)
+	private String infoHelper()
 	{
-		salePrice = price;
-	}
-	/**
-	 * Outputs the sale price for each person in a vehicle
-	 * @return Outputs sale price
-	 */
-	@Override
-	public double getSalePrice()
-	{
-		return salePrice;
+		return
+				"Vehicle: Taxi" + "\n" + 
+				"Model: " + getName() + "\n" + 
+				"Color: " + getColor() + "\n" +
+				"Maximum Speed: " + getMaxSpeed() + "\n" +
+				"Total Person Cost: " + calculatePrice() + "\n" +
+				"Piston Count: " + getPistonNum() + "\n";
+
 	}
 	
 	/**
-	 * Sets the maximum capacity of people
-	 * @param price Sets the maximum capacity to value input
+	 * Calculates the total cost that every passenger spent on transportation
+	 * @return Total cost spent on transport
 	 */
 	@Override
-	public void setMaxCapacity(int maxNum)
+	public double calculatePrice()
 	{
-		maxCapacity = maxNum;
-	}
-	/**
-	 * Outputs the maximum capacity of people
-	 * @return Outputs the maximum capacity
-	 */
-	@Override
-	public int getMaxCapacity()
-	{
-		return maxCapacity;
-	}
-	
-	/**
-	 * Sets the number of occupants in a vehicle
-	 * @param price Sets number of occupants to value input
-	 */
-	@Override
-	public void setNumOcc(int num)
-	{
-		occupantNum = num;
-	}
-	/**
-	 * Outputs the number of occupants in a vehicle
-	 * @return Outputs number of occupants
-	 */
-	@Override
-	public int getNumOcc()
-	{
-		return occupantNum;
+		return salePrice * occupantNum;
 	}
 }

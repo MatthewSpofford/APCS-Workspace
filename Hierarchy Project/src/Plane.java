@@ -1,75 +1,53 @@
 public class Plane extends Vehicles implements PublicTransport{
 
 	private double salePrice;
-	private int maxCapacity;
 	private int occupantNum;
+	private static final double MAX_PLANE_SPEED = 525.75;
 	
-	
-	public Plane(String name, int year, String color)
+	/**
+	 * Creates a plane object using the base vehicle data, along with sale price and occupancy count
+	 * @param name Sets the name data as a string
+	 * @param color Sets the color data as a string
+	 * @param salePrice Sets the sale price of the vehicle
+	 * @param occNum Sets the occupancy count
+	 */
+	public Plane(String name, String color, double salePrice, int occNum)
 	{
-		super(name, year, color, 575.0);
+		super(name, color, MAX_PLANE_SPEED);
+		this.salePrice = salePrice;
+		occupantNum = occNum;
 	}
 	
+	/**
+	 * Display info about the current vehicle
+	 */
 	@Override
 	public void info()
 	{
-		
+		System.out.println("~Wooosh!!!\n" + infoHelper());
 	}
 	
 	/**
-	 * Sets the sale price for each person in a vehicle
-	 * @param price Sets sale price to value input
+	 * Helps the info method with printing the output
+	 * @return Returns the output of the info method
 	 */
-	@Override
-	public void setSalePrice(double price)
+	private String infoHelper()
 	{
-		salePrice = price;
-	}
-	/**
-	 * Outputs the sale price for each person in a vehicle
-	 * @return Outputs sale price
-	 */
-	@Override
-	public double getSalePrice()
-	{
-		return salePrice;
+		return
+				"Vehicle: Plane" + "\n" + 
+				"Model: " + getName() + "\n" + 
+				"Color: " + getColor() + "\n" +
+				"Maximum Speed: " + getMaxSpeed() + "\n" +
+				"Total Person Cost: " + calculatePrice() + "\n";
 	}
 	
 	/**
-	 * Sets the maximum capacity of people
-	 * @param price Sets the maximum capacity to value input
+	 * Calculates the total cost that every passenger spent on transportation
+	 * @return Total cost spent on transport
 	 */
 	@Override
-	public void setMaxCapacity(int maxNum)
+	public double calculatePrice()
 	{
-		maxCapacity = maxNum;
-	}
-	/**
-	 * Outputs the maximum capacity of people
-	 * @return Outputs the maximum capacity
-	 */
-	@Override
-	public int getMaxCapacity()
-	{
-		return maxCapacity;
-	}
-	
-	/**
-	 * Sets the number of occupants in a vehicle
-	 * @param price Sets number of occupants to value input
-	 */
-	@Override
-	public void setNumOcc(int num)
-	{
-		occupantNum = num;
-	}
-	/**
-	 * Outputs the number of occupants in a vehicle
-	 * @return Outputs number of occupants
-	 */
-	@Override
-	public int getNumOcc()
-	{
-		return occupantNum;
+		return salePrice * occupantNum;
 	}
 }

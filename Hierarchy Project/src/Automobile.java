@@ -2,9 +2,16 @@ public abstract class Automobile extends Vehicles{
 	
 	int pistonNum;
 	
-	public Automobile(String name, int year, String color, double maxSpeed, int pistonNum)
+	/**
+	 * Creates the base automobile object, along with the entered piston amount
+	 * @param name Sets the name data as a string
+	 * @param color Sets the color data as a string
+	 * @param maxSpeed Sets the maximum speed of the vehicle
+	 * @param pistonNum
+	 */
+	public Automobile(String name, String color, double maxSpeed, int pistonNum)
 	{
-		super(name, year, color, maxSpeed);
+		super(name, color, maxSpeed);
 		this.pistonNum = pistonNum;
 	}
 	
