@@ -1,11 +1,16 @@
 
+/**
+ * Used to create a gas car object from an automobile
+ * @author spoffordmat
+ *
+ */
 public class GasCar extends Automobile {
 
 	/**
 	 * Creates a gas car object using the base automobile data
 	 * @param name Sets the name data as a string
 	 * @param color Sets the color data as a string
-	 * @param maxSpeed Sets the maximum speed of the vehicle
+	 * @param maxSpeed Sets the maximum speed of the vehicle (mph)
 	 * @param pistonNum Sets the piston count
 	 */
 	public GasCar(String name, String color, double maxSpeed, int pistonNum)
@@ -34,6 +39,6 @@ public class GasCar extends Automobile {
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +
 				"Maximum Speed: " + getMaxSpeed() + "\n" +
-				"Piston Count: " + getPistonNum() + "\n";
+				"Piston Count: " + getCylinderNum() + "\n";
 	}
 }

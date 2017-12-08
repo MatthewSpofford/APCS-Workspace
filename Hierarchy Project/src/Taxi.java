@@ -12,11 +12,11 @@ public class Taxi extends Automobile implements PublicTransport {
 	 * @param maxSpeed Sets the maximum speed of the vehicle
 	 * @param salePrice Sets the sale price of the vehicle
 	 * @param occNum Sets the occupancy count
-	 * @param pistonNum Sets the piston count
+	 * @param cylinderNum Sets the cylinder count
 	 */
-	public Taxi(String name, double maxSpeed, double salePrice, int occNum, int pistonNum)
+	public Taxi(String name, double maxSpeed, double salePrice, int occNum, int cylinderNum)
 	{
-		super(name, TAXI_COLOR, maxSpeed, pistonNum);
+		super(name, TAXI_COLOR, maxSpeed, cylinderNum);
 		this.salePrice = salePrice;
 		occupantNum = occNum;
 	}
@@ -42,7 +42,7 @@ public class Taxi extends Automobile implements PublicTransport {
 				"Color: " + getColor() + "\n" +
 				"Maximum Speed: " + getMaxSpeed() + "\n" +
 				"Total Person Cost: " + calculatePrice() + "\n" +
-				"Piston Count: " + getPistonNum() + "\n";
+				"Cylinder Count: " + getCylinderNum() + "\n";
 
 	}
 	

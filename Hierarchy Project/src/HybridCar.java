@@ -41,7 +41,7 @@ public class HybridCar extends ElectricCar {
 				"Color: " + getColor() + "\n" +
 				"Maximum Speed: " + getMaxSpeed() + "mph\n" +
 				"Battery Size: " + getBatterySize() + "kWh\n" +
-				"Piston Count: " + getPistonNum() + "\n";
+				"Piston Count: " + getCylinderNum() + "\n";
 	}
 
 }

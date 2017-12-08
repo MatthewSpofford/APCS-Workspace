@@ -1,24 +1,24 @@
 
 /**
- * 
+ * Used to create a base automobile object from the vehicle class
  * @author Matthew Spofford
  *
  */
 public abstract class Automobile extends Vehicles{
 	
-	int pistonNum;
+	int cylinderNum;
 	
 	/**
-	 * Creates the base automobile object, along with the entered piston amount
+	 * Creates the base automobile object, along with the entered cylinder amount
 	 * @param name Sets the name data as a string
 	 * @param color Sets the color data as a string
 	 * @param maxSpeed Sets the maximum speed of the vehicle
-	 * @param pistonNum
+	 * @param cylinderNum Sets the amount of cylinders in an automobile
 	 */
-	public Automobile(String name, String color, double maxSpeed, int pistonNum)
+	public Automobile(String name, String color, double maxSpeed, int cylinderNum)
 	{
 		super(name, color, maxSpeed);
-		this.pistonNum = pistonNum;
+		this.cylinderNum = cylinderNum;
 	}
 	
 	/**
@@ -29,14 +29,14 @@ public abstract class Automobile extends Vehicles{
 	{
 		if(val < 0)
 			return;
-		pistonNum = val;
+		cylinderNum = val;
 	}
 	/**'
-	 * Returns the number of pistons in an automobile
-	 * @return Returns the number of pistons
+	 * Returns the number of cylinders in an automobile
+	 * @return Returns the number of cylinders
 	 */
-	public int getPistonNum()
+	public int getCylinderNum()
 	{
-		return pistonNum;
+		return cylinderNum;
 	}
 }

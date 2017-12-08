@@ -42,7 +42,7 @@ public class Bus extends Automobile implements PublicTransport {
 				"Color: " + getColor() + "\n" +
 				"Maximum Speed: " + getMaxSpeed() + "\n" +
 				"Total Person Cost: " + calculatePrice() + "\n" +
-				"Piston Count: " + getPistonNum() + "\n";
+				"Piston Count: " + getCylinderNum() + "\n";
 	}
 	
 	/**

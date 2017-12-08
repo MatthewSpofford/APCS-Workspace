@@ -1,5 +1,9 @@
 
-
+/**
+ * Defines the interface for public transport objects
+ * @author spoffordmat
+ * 
+ */
 public interface PublicTransport {
 	
 	/**
