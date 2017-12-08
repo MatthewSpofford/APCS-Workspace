@@ -11,20 +11,21 @@ public class GasCar extends Automobile {
 	 * @param name Sets the name data as a string
 	 * @param color Sets the color data as a string
 	 * @param maxSpeed Sets the maximum speed of the vehicle (mph)
-	 * @param pistonNum Sets the piston count
+	 * @param cylinderNum Sets the cylinder count
 	 */
-	public GasCar(String name, String color, double maxSpeed, int pistonNum)
+	public GasCar(String name, String color, double maxSpeed, int cylinderNum)
 	{
-		super(name, color, maxSpeed, pistonNum);
+		super(name, color, maxSpeed, cylinderNum);
 	}
 	
 	/**
-	 * Display info about the current vehicle
+	 * Returns a string of info about the current vehicle.
+	 * @return Outputs the info about the vehicle
 	 */
 	@Override
-	public void info()
+	public String info()
 	{
-		System.out.println(infoHelper());
+		return infoHelper();
 	}
 	
 	/**
@@ -38,7 +39,7 @@ public class GasCar extends Automobile {
 				"Vehicle: Gas Car" + "\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +
-				"Maximum Speed: " + getMaxSpeed() + "\n" +
-				"Piston Count: " + getCylinderNum() + "\n";
+				"Maximum Speed: " + getMaxSpeed() + "mph\n" +
+				"Cylinder Count: " + getCylinderNum() + "\n";
 	}
 }

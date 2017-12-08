@@ -10,22 +10,23 @@ public class HybridCar extends ElectricCar {
 	 * @param name Sets the name data as a string
 	 * @param color Sets the color data as a string
 	 * @param maxSpeed Sets the maximum speed of the vehicle (mph)
-	 * @param pistonNum Sets the number of pistons of the automobile
+	 * @param cylinderNum Sets the number of cylinders of the automobile
 	 * @param batterySize Sets the size of the battery (kWh)
 	 */
-	public HybridCar(String name, String color, double maxSpeed, int pistonNum, double batterySize)
+	public HybridCar(String name, String color, double maxSpeed, int cylinderNum, double batterySize)
 	{
 		super(name, color, maxSpeed, batterySize);
-		this.setPistonNum(pistonNum);
+		this.setCylinderNum(cylinderNum);
 	}
 	
 	/**
-	 * Display info about the current vehicle
+	 * Returns a string of info about the current vehicle.
+	 * @return Outputs the info about the vehicle
 	 */
 	@Override
-	public void info()
+	public String info()
 	{
-		System.out.println(infoHelper());
+		return infoHelper();
 	}
 	
 	/**
@@ -41,7 +42,7 @@ public class HybridCar extends ElectricCar {
 				"Color: " + getColor() + "\n" +
 				"Maximum Speed: " + getMaxSpeed() + "mph\n" +
 				"Battery Size: " + getBatterySize() + "kWh\n" +
-				"Piston Count: " + getCylinderNum() + "\n";
+				"Cylinder Count: " + getCylinderNum() + "\n";
 	}
 
 }

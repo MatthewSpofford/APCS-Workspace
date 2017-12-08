@@ -13,12 +13,13 @@ public class Motorbike extends Bike{
 	}
 	
 	/**
-	 * Display info about the current vehicle
+	 * Returns a string of info about the current vehicle.
+	 * @return Outputs the info about the vehicle
 	 */
 	@Override
-	public void info()
+	public String info()
 	{
-		System.out.println(infoHelper());
+		return infoHelper();
 	}
 	
 	/**

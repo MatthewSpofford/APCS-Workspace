@@ -11,22 +11,23 @@ public class Bus extends Automobile implements PublicTransport {
 	 * @param maxSpeed Sets the maximum speed of the vehicle
 	 * @param salePrice Sets the sale price of the vehicle
 	 * @param occNum Sets the occupancy count
-	 * @param pistonNum Sets the piston count
+	 * @param cylinderNum Sets the cylinder count
 	 */
-	public Bus(String name, String color, double maxSpeed, double salePrice, int occNum, int pistonNum)
+	public Bus(String name, String color, double maxSpeed, double salePrice, int occNum, int cylinderNum)
 	{
-		super(name, color, maxSpeed, pistonNum);
+		super(name, color, maxSpeed, cylinderNum);
 		this.salePrice = salePrice;
 		occupantNum = occNum;
 	}
 	
 	/**
-	 * Display info about the current vehicle
+	 * Returns a string of info about the current vehicle.
+	 * @return Outputs the info about the vehicle
 	 */
 	@Override
-	public void info()
+	public String info()
 	{
-		System.out.println(infoHelper());
+		return infoHelper();
 	}
 	
 	/**
@@ -40,9 +41,9 @@ public class Bus extends Automobile implements PublicTransport {
 				"Vehicle: Bus" + "\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +
-				"Maximum Speed: " + getMaxSpeed() + "\n" +
-				"Total Person Cost: " + calculatePrice() + "\n" +
-				"Piston Count: " + getCylinderNum() + "\n";
+				"Maximum Speed: " + getMaxSpeed() + "mph\n" +
+				"Total Person Cost: $" + String.format("%.2f", calculatePrice()) + "\n" + 
+				"Cylinder Count: " + getCylinderNum() + "\n";
 	}
 	
 	/**

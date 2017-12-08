@@ -14,14 +14,15 @@ public class Bike extends Vehicles{
 	}
 	
 	/**
-	 * Display info about the current vehicle
+	 * Returns a string of info about the current vehicle.
+	 * @return Outputs the info about the vehicle
 	 */
 	@Override
-	public void info()
+	public String info()
 	{
-		System.out.println("~Ding Ding Ding!!!\n" + infoHelper());
+		return infoHelper();
 	}
-	
+
 	/**
 	 * Helps the info method with printing the output
 	 * @return Returns the output of the info method
@@ -29,9 +30,10 @@ public class Bike extends Vehicles{
 	private String infoHelper()
 	{
 		return
+				"~Ding Ding Ding!!!\n" +
 				"Vehicle: Bike" + "\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +
-				"Maximum Speed: " + getMaxSpeed() + "\n";
+				"Maximum Speed: " + getMaxSpeed() + "mph\n";
 	}
 }

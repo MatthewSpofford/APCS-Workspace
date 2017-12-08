@@ -22,12 +22,13 @@ public class Taxi extends Automobile implements PublicTransport {
 	}
 	
 	/**
-	 * Display info about the current vehicle
+	 * Returns a string of info about the current vehicle.
+	 * @return Outputs the info about the vehicle
 	 */
 	@Override
-	public void info()
+	public String info()
 	{
-		System.out.println("~Beep Beep!!!\n" + infoHelper());
+		return infoHelper();
 	}
 	
 	/**
@@ -37,11 +38,12 @@ public class Taxi extends Automobile implements PublicTransport {
 	private String infoHelper()
 	{
 		return
+				"~Beep Beep!!!\n" + 
 				"Vehicle: Taxi" + "\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +
-				"Maximum Speed: " + getMaxSpeed() + "\n" +
-				"Total Person Cost: " + calculatePrice() + "\n" +
+				"Maximum Speed: " + getMaxSpeed() + "mph\n" +
+				"Total Person Cost: $" + String.format("%.2f", calculatePrice()) + "\n" + 
 				"Cylinder Count: " + getCylinderNum() + "\n";
 
 	}

@@ -19,12 +19,13 @@ public class Plane extends Vehicles implements PublicTransport{
 	}
 	
 	/**
-	 * Display info about the current vehicle
+	 * Returns a string of info about the current vehicle.
+	 * @return Outputs the info about the vehicle
 	 */
 	@Override
-	public void info()
+	public String info()
 	{
-		System.out.println("~Wooosh!!!\n" + infoHelper());
+		return infoHelper();
 	}
 	
 	/**
@@ -34,11 +35,12 @@ public class Plane extends Vehicles implements PublicTransport{
 	private String infoHelper()
 	{
 		return
+				"~Wooosh!!!\n" +
 				"Vehicle: Plane" + "\n" + 
 				"Model: " + getName() + "\n" + 
 				"Color: " + getColor() + "\n" +
 				"Maximum Speed: " + getMaxSpeed() + "\n" +
-				"Total Person Cost: " + calculatePrice() + "\n";
+				"Total Person Cost: $" + String.format("%.2f", calculatePrice()) + "\n";
 	}
 	
 	/**
@@ -49,5 +51,24 @@ public class Plane extends Vehicles implements PublicTransport{
 	public double calculatePrice()
 	{
 		return salePrice * occupantNum;
+	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		//If parent equals() is true
+		if(super.equals(obj))
+		{
+			//If classes are equal
+			if(this.getClass() == obj.getClass())
+			{
+				Plane tempObj = (Plane)obj;
+				if(this.occupantNum == tempObj.occupantNum &&
+				   this.salePrice == tempObj.salePrice)
+					return true;
+			}
+		}
+		
+		return false;
 	}
 }

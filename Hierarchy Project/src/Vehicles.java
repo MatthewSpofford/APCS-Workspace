@@ -1,4 +1,9 @@
 
+/**
+ * Used to store and create the base information for vehicles
+ * @author Matthew Spofford
+ *
+ */
 public abstract class Vehicles implements Comparable<Vehicles>{
 	
 	private String name;
@@ -17,15 +22,16 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 		this.name = name;
 		this.color = color;
 		this.maxSpeed = maxSpeed;
-		vehiclesMade += 1;
+		vehiclesMade += 1;	//Increase vehicles made counter
 	}
 	
 	/**
-	 * Display info about the current vehicle.
+	 * Returns a string of info about the current vehicle.
 	 * First displays the sound it creates, 
 	 * then the type of vehicle, and then any other needed data
+	 * @return Outputs the info about the vehicle
 	 */
-	public abstract void info();
+	public abstract String info();
 	
 	/**
 	 * Sets the cost color of a vehicle
@@ -91,8 +97,15 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 	}
 	
 	@Override
+	public String toString()
+	{
+		return info();
+	}
+	
+	@Override
 	public boolean equals(Object obj)
 	{		
+		//If classes are not equal, objects cannot be equal
 		if(obj.getClass() != this.getClass())
 			return false;
 		
@@ -117,10 +130,10 @@ public abstract class Vehicles implements Comparable<Vehicles>{
 		int compare = obj.name.compareTo(this.name);
 		if(compare == 0)
 		{
-			
 			compare = obj.color.compareTo(this.color);
 			if(compare == 0)
-			{
+			{	
+				//Compare the max speeds using compareTo()
 				Double objMaxSp = new Double(obj.maxSpeed);
 				Double tempMaxSp = new Double(this.maxSpeed);
 				

@@ -22,10 +22,10 @@ public abstract class Automobile extends Vehicles{
 	}
 	
 	/**
-	 * Sets the number of pistons in an automobile
-	 * @param val Sets the piston number to the value given
+	 * Sets the number of cylinder in an automobile
+	 * @param val Sets the cylinder number to the value given
 	 */
-	public void setPistonNum(int val)
+	public void setCylinderNum(int val)
 	{
 		if(val < 0)
 			return;
