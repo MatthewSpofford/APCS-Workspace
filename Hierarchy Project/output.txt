@@ -1,0 +1,101 @@
+Vehicles Made: 12
+
+~Vroom Vroom!!!
+Vehicle: Motorbike
+Model: Harley Davidson
+Color: Black
+Maximum Speed: 120.0mph
+
+~Beep Beep!!!
+Vehicle: Gas Car
+Model: Chevy Traverse
+Color: White
+Maximum Speed: 175.5mph
+Cylinder Count: 6
+
+~Choo Choo!!!
+Vehicle: Plane
+Model: Bullet Train
+Color: Grey, Blue
+Maximum Speed: 375.5mph
+Total Person Cost: $8160.00
+
+~Wooosh!!!
+Vehicle: Plane
+Model: Boeing 747
+Color: White, Blue
+Maximum Speed: 550.0mph
+Total Person Cost: $45750.00
+
+~Beep Beep!!!
+Vehicle: Taxi
+Model: Toyota Prius
+Color: Yellow
+Maximum Speed: 115.0mph
+Total Person Cost: $67.68
+Cylinder Count: 4
+
+~Ding Ding Ding!!!
+Vehicle: Bike
+Model: Trek Bike
+Color: Red, Black
+Maximum Speed: 32.5mph
+
+~Beep Beep!!!
+Vehicle: Electric Car
+Model: Tesla Model S
+Color: Silver
+Maximum Speed: 190.0mph
+Battery Size: 60.0kWh
+
+~Beep Beep!!!
+Vehicle: Hybrid Car
+Model: Ford Fusion
+Color: Blue
+Maximum Speed: 110.0mph
+Battery Size: 35.0kWh
+Cylinder Count: 4
+
+~Beep Beep!!!
+Vehicle: Taxi
+Model: Toyota Prius
+Color: Yellow
+Maximum Speed: 115.0mph
+Total Person Cost: $67.68
+Cylinder Count: 4
+
+~Honk Honk!!!
+Vehicle: Bus
+Model: School Bus
+Color: Yellow
+Maximum Speed: 105.7mph
+Total Person Cost: $0.00
+Cylinder Count: 8
+
+~Beep Beep!!!
+Vehicle: Gas Car
+Model: Nissan Maxima
+Color: Red
+Maximum Speed: 165.6mph
+Cylinder Count: 4
+
+~Choo Choo!!!
+Vehicle: Plane
+Model: Monorail
+Color: White
+Maximum Speed: 198.8mph
+Total Person Cost: $2175.00
+
+~Beep Beep!!!
+Vehicle: Gas Car
+Model: Chevy Traverse
+Color: White
+Maximum Speed: 175.5mph
+Cylinder Count: 6
+
+Car 1 (Chevy Traverse) is equal to Car 2 (Chevy Traverse)
+
+Car 1 (Chevy Traverse) is greater than Car 2 (Nissan Maxima)
+
+Car 1 (Chevy Traverse) is equal to Car 2 (Chevy Traverse)
+
