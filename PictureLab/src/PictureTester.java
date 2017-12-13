@@ -47,7 +47,7 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("swan.jpg");
-    swan.edgeDetection(10);
+    swan.edgeDetection(5);
     swan.explore();
   }
   
@@ -58,7 +58,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -72,9 +72,9 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
+	//testChromakey();
     //testEdgeDetection2();
-    //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
