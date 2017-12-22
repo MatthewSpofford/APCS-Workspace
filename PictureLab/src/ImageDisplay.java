@@ -188,6 +188,8 @@ public class ImageDisplay extends JPanel implements Scrollable
       g.drawLine(currentX,yStart,currentX,yEnd);
       g.setColor(Color.black);
       
+      this.image.getGraphics().fillOval(currentX, currentY, 50, 50);
+      
       // outline the cross in black so that it shows up better
       int leftX = currentX - 1;
       int rightX = currentX + 1;
