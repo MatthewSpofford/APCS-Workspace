@@ -53,7 +53,7 @@ public class MagicSquare {
 		currentValue = 0;
 		for(int i = 0; i < magicSquare.length && j >= 0; i++)
 		{
-			currentValue += magicSquare[i][j++];
+			currentValue += magicSquare[i][j--];
 		}
 		if(currentValue != sumValue)
 			return false;
@@ -80,6 +80,18 @@ public class MagicSquare {
 	
 	private void generateSquare()
 	{
+		if(magicSquare.length % 2 != 0)
+		{
+			generateOddSquare();
+		}
+		else
+		{
+			generateEvenSquare();
+		}
+	}
+	
+	private void generateOddSquare()
+	{
 		int currentVal = 0;
 		int i = 0;
 		int j = (magicSquare[0].length / 2);;
@@ -94,9 +106,34 @@ public class MagicSquare {
 				j = 0;
 			
 			while(magicSquare[i][j] != 0 && notFull())
+			{
 				i++;
+				if(i >= magicSquare.length)
+					i = 0;
+			}
 		}
 		while(notFull());
+	}
+	
+	private void generateEvenSquare()
+	{
+		int currentValue = 0;
+		
+		for(int i = 0; i < magicSquare.length; i++)
+			for(int j = 0; j < magicSquare[i].length; j++)
+				magicSquare[i][j] = ++currentValue;
+		
+		for(int i = 0; i < (magicSquare.length/2+1) - 1; i++)
+		{
+			int j = (magicSquare.length-1)-i;
+			int temp = magicSquare[i][i];
+			magicSquare[i][i] = magicSquare[j][j];
+			magicSquare[j][j] = temp;
+			
+			temp = magicSquare[i][j];
+			magicSquare[i][j] = magicSquare[j][i];
+			magicSquare[j][i] = temp;
+		}
 	}
 	
 	private boolean notFull()

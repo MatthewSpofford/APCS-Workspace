@@ -46,9 +46,6 @@ public class MagicSquareTester {
 
 		MagicSquare square13 = new MagicSquare(13);
 		printSquare(square13,"13x13");
-		
-		MagicSquare square4 = new MagicSquare(4);
-		printSquare(square4, "4x4");
 
 	}
 
