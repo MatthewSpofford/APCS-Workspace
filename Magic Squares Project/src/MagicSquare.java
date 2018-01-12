@@ -2,19 +2,34 @@
 public class MagicSquare {
 
 	private int[][] magicSquare;
+	private int squareSize;
+	private int magicSum;
 	
 	public MagicSquare()
 	{
 		magicSquare = new int[3][3];
+		squareSize = 3;
 		generateSquare();
 	}
 	
 	public MagicSquare(int sideLength)
 	{
+		if(sideLength < 3)
+			sideLength = 3;
+		
+		if(sideLength % 2 == 0)
+			sideLength += 1;
+		
 		magicSquare = new int[sideLength][sideLength];
+		squareSize = sideLength;
 		generateSquare();
 	}
 	
+	/**
+	 * Returns if the magicSquare was valid or not, meaning that the sum values of the
+	 * diagonals, rows, and columns are equal.
+	 * @return True if the magicSquare is valid, false if the magicSquare is invalid.
+	 */
 	public boolean validSquare()
 	{
 		int sumValue = 0;
@@ -62,80 +77,78 @@ public class MagicSquare {
 	}
 	
 	@Override
+	/**
+	 * Outputs
+	 * @return Outputs a 
+	 */
 	public String toString()
 	{
 		String output = "";
 		
-		for(int i = 0; i < magicSquare.length; i++)
+		for(int[] row : magicSquare)
 		{
-			for(int j = 0; j < magicSquare[i].length; j++)
-			{
-				output += magicSquare[i][j] + "	";
-			}
+			for(int col : row)
+				output += col + "	";
 			output += "\n";
 		}
 		
 		return output;
 	}
 	
-	private void generateSquare()
+	/**
+	 * Outputs the size of the magicSquare. Ex: 3x3 square outputs 3.
+	 * @return Size of square as an integer value.
+	 */
+	public int getSize()
 	{
-		if(magicSquare.length % 2 != 0)
-		{
-			generateOddSquare();
-		}
-		else
-		{
-			generateEvenSquare();
-		}
+		return squareSize;
 	}
 	
-	private void generateOddSquare()
+	/**
+	 * Outputs the magic sum of the magicSquare.
+	 * @return Magic sum of the square as an integer value.
+	 */
+	public int getSum()
+	{
+		return magicSum;
+	}
+	
+	/**
+	 * Generates a magic square based off of the current size of the stored magicSquare.
+	 * This method cannot be run if the magicSquare is uninitialized.  This method also
+	 * initializes the magic sum of the magicSquare.
+	 */
+	private void generateSquare()
 	{
 		int currentVal = 0;
-		int i = 0;
-		int j = (magicSquare[0].length / 2);;
+		int rowIndex = 0;
+		int colIndex = (magicSquare[0].length / 2);;
 		
 		do
 		{
-			magicSquare[i--][j++] = ++currentVal;
+			magicSquare[rowIndex--][colIndex++] = ++currentVal;
 			
-			if(i < 0)
-				i = magicSquare.length - 1;
-			if(j >= magicSquare[0].length)
-				j = 0;
+			if(rowIndex < 0)
+				rowIndex = magicSquare.length - 1;
+			if(colIndex >= magicSquare[0].length)
+				colIndex = 0;
 			
-			while(magicSquare[i][j] != 0 && notFull())
+			while(magicSquare[rowIndex][colIndex] != 0 && notFull())
 			{
-				i++;
-				if(i >= magicSquare.length)
-					i = 0;
+				rowIndex++;
+				if(rowIndex >= magicSquare.length)
+					rowIndex = 0;
 			}
 		}
 		while(notFull());
-	}
-	
-	private void generateEvenSquare()
-	{
-		int currentValue = 0;
 		
+		int sum = 0;
 		for(int i = 0; i < magicSquare.length; i++)
-			for(int j = 0; j < magicSquare[i].length; j++)
-				magicSquare[i][j] = ++currentValue;
+			sum += magicSquare[i][0];
 		
-		for(int i = 0; i < (magicSquare.length/2+1) - 1; i++)
-		{
-			int j = (magicSquare.length-1)-i;
-			int temp = magicSquare[i][i];
-			magicSquare[i][i] = magicSquare[j][j];
-			magicSquare[j][j] = temp;
-			
-			temp = magicSquare[i][j];
-			magicSquare[i][j] = magicSquare[j][i];
-			magicSquare[j][i] = temp;
-		}
+		magicSum = sum;
 	}
-	
+		
 	private boolean notFull()
 	{
 		for(int i = 0; i < magicSquare.length; i++)

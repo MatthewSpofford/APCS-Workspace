@@ -16,7 +16,7 @@ public class MagicSquareTester {
 	public static void printSquare(MagicSquare square, String msg)
 	{
 		System.out.println("***"+msg+"***");
-		//System.out.println("A Magic square of size "+ square.getSize() + " has a magic sum of " + square.getSum());
+		System.out.println("A Magic square of size "+ square.getSize() + " has a magic sum of " + square.getSum());
 		System.out.println(square);
 		
 		//Check if valid magic square
@@ -46,6 +46,7 @@ public class MagicSquareTester {
 
 		MagicSquare square13 = new MagicSquare(13);
 		printSquare(square13,"13x13");
+
 
 	}
 
