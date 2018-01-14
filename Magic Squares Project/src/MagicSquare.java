@@ -1,27 +1,48 @@
-
+/**
+ * Class that creates and stores magic squares.
+ * Can only create squares with an odd length.
+ * @author Matthew Spofford
+ */
 public class MagicSquare {
 
-	private int[][] magicSquare;
-	private int squareSize;
-	private int magicSum;
+	private int[][] magicSquare;	//Stores the magic square
 	
+	/**
+	 * Create a magic square that is 3x3.
+	 */
 	public MagicSquare()
 	{
+		//Create a blank square that is 3x3
 		magicSquare = new int[3][3];
-		squareSize = 3;
+		
+		//Sets square values to zero
+		initSquare();
+		//Generate magic square values
 		generateSquare();
 	}
 	
+	/**
+	 * Creates a magic square based off of the side length given.  The side length is
+	 * set to 3 if less than that value.  If the side length is even, increase it by 1.
+	 * Example: side length = 3, square = 3x3
+	 * @param sideLength Represents the length of each side for the magic square
+	 */
 	public MagicSquare(int sideLength)
 	{
+		//If length is too small, set to 3
 		if(sideLength < 3)
 			sideLength = 3;
 		
+		//If length is even, increase length by 1
 		if(sideLength % 2 == 0)
 			sideLength += 1;
 		
+		//Create blank square based off of length given
 		magicSquare = new int[sideLength][sideLength];
-		squareSize = sideLength;
+		
+		//Sets square values to zero
+		initSquare();
+		//Generate magic square values
 		generateSquare();
 	}
 	
@@ -32,17 +53,14 @@ public class MagicSquare {
 	 */
 	public boolean validSquare()
 	{
-		int sumValue = 0;
-		int currentValue = 0;
+		int currentValue = 0;	//Stores current sum of row/column/diagonal being checked
+		int magicSum = 0;		//Stores the magic sum of the square
 		
-		for(int i = 0; i < 1; i++) 
-		{
-			for(int j = 0; j < magicSquare[i].length; j++) 
-			{
-				sumValue += magicSquare[i][j];
-			}
-		}
+		//Calculate the magic sum
+		for(int i = 0; i < magicSquare.length; i++)
+			magicSum += magicSquare[i][0];
 		
+		//Checks the sum value of the rows
 		for(int i = 0; i < magicSquare.length; i++)
 		{
 			currentValue = 0;
@@ -51,44 +69,63 @@ public class MagicSquare {
 				currentValue += magicSquare[i][j];
 			}
 			
-			if(currentValue != sumValue)
+			//If a sum is not equal to the magic sum, the square is not valid
+			if(currentValue != magicSum)
 				return false;
 		}
 		
-		int j = 0;
-		currentValue = 0;
-		for(int i = 0; i < magicSquare.length && j < magicSquare[0].length; i++)
+		//Checks the sum value of the columns
+		for(int i = 0; i < magicSquare.length; i++)
 		{
-			currentValue += magicSquare[i][j++];
+			currentValue = 0;
+			for(int j = 0; j < magicSquare[i].length; j++)
+			{
+				currentValue += magicSquare[j][i];
+			}
+			
+			//If a sum is not equal to the magic sum, the square is not valid
+			if(currentValue != magicSum)
+				return false;
 		}
-		if(currentValue != sumValue)
+		
+		//Checks the sum value of the top-left to bottom-right diagonal
+		currentValue = 0;
+		for(int i = 0, j = 0; i < magicSquare.length && j < magicSquare[0].length; i++, j++)
+		{
+			currentValue += magicSquare[i][j];
+		}
+		//If a sum is not equal to the magic sum, the square is not valid
+		if(currentValue != magicSum)
 			return false;
 		
-		j = magicSquare[0].length - 1;
+		//Checks the sum value of the top-right to bottom-left diagonal
 		currentValue = 0;
-		for(int i = 0; i < magicSquare.length && j >= 0; i++)
+		for(int i = 0, j = magicSquare[0].length - 1; i < magicSquare.length && j >= 0; i++, j--)
 		{
-			currentValue += magicSquare[i][j--];
+			currentValue += magicSquare[i][j];
 		}
-		if(currentValue != sumValue)
+		//If a sum is not equal to the magic sum, the square is not valid
+		if(currentValue != magicSum)
 			return false;
 		
 		return true;
 	}
 	
-	@Override
 	/**
-	 * Outputs
-	 * @return Outputs a 
+	 * Outputs the magic square
+	 * @return Outputs the magic square as a string 
 	 */
+	@Override
 	public String toString()
 	{
 		String output = "";
 		
+		//Loops through the magic square to be put into a string format
 		for(int[] row : magicSquare)
 		{
-			for(int col : row)
-				output += col + "	";
+			for(int col : row) {
+				output += col + "\t";
+			}
 			output += "\n";
 		}
 		
@@ -101,7 +138,7 @@ public class MagicSquare {
 	 */
 	public int getSize()
 	{
-		return squareSize;
+		return magicSquare.length;
 	}
 	
 	/**
@@ -110,47 +147,67 @@ public class MagicSquare {
 	 */
 	public int getSum()
 	{
+		int magicSum = 0;
+		
+		//Calculate the magic sum
+		for(int i = 0; i < magicSquare.length; i++)
+			magicSum += magicSquare[i][0];
+		
 		return magicSum;
 	}
 	
 	/**
 	 * Generates a magic square based off of the current size of the stored magicSquare.
-	 * This method cannot be run if the magicSquare is uninitialized.  This method also
-	 * initializes the magic sum of the magicSquare.
-	 */
+	 * This method cannot be run if the magicSquare is uninitialized.	 
+	 **/
 	private void generateSquare()
 	{
-		int currentVal = 0;
-		int rowIndex = 0;
-		int colIndex = (magicSquare[0].length / 2);;
+		int currentVal = 0;		//Stores current number being added to the square
+		int rowIndex = 0;		//Stores the row index
+		int colIndex = (magicSquare[0].length / 2);	//Sets column index to squares middle
 		
+		//Loop through the magic square if it is not full
 		do
 		{
+			int lastRowIndex = rowIndex;	//Stores the row index of the last value set
+			int lastColIndex = colIndex;	//Stores the column index of the last value set
+			
+			//For very iteration, attempt to move the number in the northeast direction from the last
 			magicSquare[rowIndex--][colIndex++] = ++currentVal;
 			
+			//If the row index is outside of the top of the square, bring the index to the bottom
 			if(rowIndex < 0)
 				rowIndex = magicSquare.length - 1;
+			//If the column index is outside of the right side of the square, bring the index to the left side
 			if(colIndex >= magicSquare[0].length)
 				colIndex = 0;
 			
-			while(magicSquare[rowIndex][colIndex] != 0 && notFull())
+			//If there is already a number within the current position being looked at,
+			//go down a row until from the last position until it is empty
+			if(magicSquare[rowIndex][colIndex] != 0 && notFull())
 			{
-				rowIndex++;
-				if(rowIndex >= magicSquare.length)
-					rowIndex = 0;
+				rowIndex = lastRowIndex;
+				colIndex = lastColIndex;
+				
+				//If outside of the square boundary, go to the first row
+				do
+				{
+					if(++rowIndex >= magicSquare.length)
+						rowIndex = 0;
+				}
+				while(magicSquare[rowIndex][colIndex] != 0);
 			}
 		}
 		while(notFull());
-		
-		int sum = 0;
-		for(int i = 0; i < magicSquare.length; i++)
-			sum += magicSquare[i][0];
-		
-		magicSum = sum;
 	}
-		
+	
+	/**
+	 * Used to find see if the magic square is still not yet complete/full
+	 * @return Outputs true if the magic square is not full, and false if full
+	 */
 	private boolean notFull()
 	{
+		//Loops through the magic square to see if there are any empty sections
 		for(int i = 0; i < magicSquare.length; i++)
 		{
 			for(int j = 0; j < magicSquare[i].length; j++)
@@ -161,5 +218,15 @@ public class MagicSquare {
 		}
 		
 		return false;
+	}
+
+	/**
+	 * Initializes values of magic square to zero
+	 */
+	private void initSquare()
+	{
+		for(int i = 0; i < magicSquare.length; i++)
+			for(int j = 0; j < magicSquare[i].length; j++)
+				magicSquare[i][j] = 0;
 	}
 }
