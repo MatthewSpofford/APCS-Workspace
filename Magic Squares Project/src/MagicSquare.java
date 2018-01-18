@@ -12,8 +12,13 @@ public class MagicSquare {
 	 */
 	public MagicSquare()
 	{
-		//Calls the nondefault constructor
-		MagicSquare(3);
+		//Create a blank square that is 3x3
+		magicSquare = new int[3][3];
+		
+		//Sets square values to zero
+		initSquare();
+		//Generate magic square values
+		generateSquare();
 	}
 	
 	/**
