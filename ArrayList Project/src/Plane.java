@@ -1,4 +1,4 @@
 
-public class Plane {
+public class Plane extends Vehicle{
 
 }
