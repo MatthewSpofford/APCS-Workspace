@@ -1,7 +1,7 @@
 
 public abstract class Vehicle {
 	
-	private String name = "";
+	protected String name = "";
 	
 	public Vehicle(String name) {
 		this.name = name;
