@@ -1,70 +1,54 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class program {
 	
 	public static void main(String[] args)
 	{
-		mystery1(321);
-		int[] arr = {2, 4, 2, 3, 4, 1, 10, 5};
-		String str = "ababc";
-		int temp = countAbc(str);
-		if(temp == 2)
-			System.out.print("GOOD");
-		else
-			System.out.print("BAD");
+		ArrayList<String> array = new ArrayList<String>();
+		ListIterator<String> iterator = array.listIterator();
+		while(iterator.hasNext())
+			System.out.println(iterator.next());
 	}
 	
-	public static void mystery1(int x)
+	public static ArrayList<Integer> students = new ArrayList<Integer>();
+	
+	static public Integer getValedictorian()
 	{
-		System.out.print(x % 10);
-		if((x / 10) != 0)
+		Integer output;
+		double highestGPA = 0;
+		Iterator<Integer> iterator = students.iterator()
+		
+		while(iterator.hasNext())
 		{
-			mystery1(x / 10);
+			Integer student = iterator.next();
+			if(student.getGPA() > highestGPA)
+			{
+				output = student;
+				highestGPA = student.getGPA();
+			}
 		}
-		System.out.print(x % 10);
-	}
-	
-	public static int countAbc(String str) {
-	  int posABC = str.indexOf("abc");
-	  int posABA = str.indexOf("aba");
-	  
-	  if(posABC == -1 && posABA == -1)
-	    return 0;
-	  else if(posABC > -1 && posABA == -1)
-	    return 1 + countAbc(str.substring(1 + posABC));
-	  else if(posABA > -1 && posABC == -1)
-	    return 1 + countAbc(str.substring(1 + posABA));
-	  else if(posABC < posABA)
-	    return 1 + countAbc(str.substring(1 + posABC));
-	  else
-	    return 1 + countAbc(str.substring(1 + posABA));
-	}
 
-	
-	public static int array11(int[] nums, int index) {
-	  if(nums.length == 0)
-	    return 0;
-	  
-	  boolean outcome = nums[index] == 11;
-	  if(nums.length - index == 1)
-	    return outcome ? 1 : 0;
-	  else
-	    return outcome ? 1 : 0 + array11(nums, ++index);
+		return output;
 	}
 	
-	public static boolean array220(int[] nums, int index) {
-	  if(nums.length == 0)
-	    return false;
-	    
-	  if(nums.length > index + 1)
-	  {
-	    if(nums[index] == nums[index+1]/10)
-	      return true;
-	    else
-	      return array220(nums, ++index);
-	  }
-	  else
-	    return false;
+	static public double getHonorsPercent()
+	{
+		int honorsCounter = 0;
+		int totalCounter = 0;
+		Iterator<Integer> iterator = students.iterator();
+		
+		while(iterator.hasNext())
+		{
+			Integer student = iterator.next();
+			if(student.isHonors())
+				honorsCounter += 1;
+			
+			totalCounter += 1;
+		}
+			
+		return honorsCounter/totalCounter;
 	}
-
 
 }
