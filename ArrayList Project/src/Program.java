@@ -42,10 +42,9 @@ public class Program {
 		System.out.println("");
 		
 		vehicles.remove(1);
-		vehicles.set(4, vehicles.get(1));	
+		vehicles.set(2, vehicles.get(1));	
 		for(Vehicle vehicle : vehicles)
 			vehicle.move();
-		
 	}
 
 }
