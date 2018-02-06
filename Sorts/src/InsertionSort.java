@@ -17,6 +17,14 @@ public class InsertionSort {
 				array[k] = array[k - 1];
 			}
 			array[minIndex] = array[i];
+			print(array);
 		}
+	}
+	
+	public static void print(int[] array)
+	{
+		for(int i = 0; i < array.length; i++)
+			System.out.print(array[i] + " ");
+		System.out.println();
 	}
 }
