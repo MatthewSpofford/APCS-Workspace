@@ -5,28 +5,18 @@ public class InsertionSort {
 	{
 		for(int i = 0; i < array.length; i++)
 		{
-			int minIndex = i;
+			int maxIndex = i;
+			int value = array[i];
 			for(int j = i; j >= 0; j--)
 			{
-				if(array[j] < array[minIndex])
-					minIndex = j;
+				if(array[j] > array[i])
+					maxIndex = j;
 			}
-			System.out.print("1.  ");
-			print(array);
-			for(int k = i; k > minIndex; k--)
+			for(int k = i; k > maxIndex; k--)
 			{
 				array[k] = array[k - 1];
 			}
-			System.out.print("2.  ");
-			array[minIndex] = array[i];
-			print(array);
+			array[maxIndex] = value;
 		}
-	}
-	
-	public static void print(int[] array)
-	{
-		for(int i = 0; i < array.length; i++)
-			System.out.print(array[i] + " ");
-		System.out.println();
 	}
 }
