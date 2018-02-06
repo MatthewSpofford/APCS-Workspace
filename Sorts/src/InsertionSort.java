@@ -12,7 +12,11 @@ public class InsertionSort {
 					minIndex = j;
 			}
 			
-			
+			for(int k = i; k > minIndex; k--)
+			{
+				array[k] = array[k - 1];
+			}
+			array[minIndex] = array[i];
 		}
 	}
 }
