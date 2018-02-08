@@ -13,6 +13,6 @@ public class MergeSort implements Sorts{
 	
 	private int[] merge(int[] a, int[] b)
 	{
-		
+		return new int[0];
 	}
 }
