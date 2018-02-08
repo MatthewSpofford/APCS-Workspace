@@ -1,7 +1,7 @@
 
-public class BubbleSort {
+public class BubbleSort implements Sorts{
 
-	public static void sort(int[] array)
+	public void sort(int[] array)
 	{
 		boolean noSwap = false;
 		while(!noSwap)

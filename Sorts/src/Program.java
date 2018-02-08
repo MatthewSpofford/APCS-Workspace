@@ -4,31 +4,20 @@ public class Program {
 	public static void main(String[] args)
 	{
 		int[] array = arrayInit();
-		System.out.println("--BUBBLE SORT--");
-		printArray(array);
-		Long prevTime = System.nanoTime();
-		BubbleSort.sort(array);
-		Long diffTime = System.nanoTime() - prevTime;
-		printArray(array);
-		System.out.println("Took " + (diffTime.doubleValue() /  1000000000.0) + " seconds");
+		Sorts sort = new BubbleSort();
+		printData(array, sort, "Bubble");
 		
-		System.out.println("\n--INSERTION SORT--");
-		array = arrayInit();
-		printArray(array);
-		prevTime = System.nanoTime();
-		InsertionSort.sort(array);
-		diffTime = System.nanoTime() - prevTime;
-		printArray(array);
-		System.out.println("Took " + (diffTime.doubleValue() /  1000000000.0) + " seconds");
+		sort = new InsertionSort();
+		printData(array, sort, "Insertion");
+
+		sort = new InsertionSort();
+		printData(array, sort, "Selection");
 		
-		System.out.println("\n--SELECTION SORT--");
-		array = arrayInit();
-		printArray(array);
-		prevTime = System.nanoTime();
-		SelectionSort.sort(array);
-		diffTime = System.nanoTime() - prevTime;
-		printArray(array);
-		System.out.println("Took " + (diffTime.doubleValue() /  1000000000.0) + " seconds");
+		sort = new MergeSort();
+		printData(array, sort, "Merge");
+		
+		sort = new QuickSort();
+		printData(array, sort, "Quick");
 	}
 	
 	public static int[] arrayInit()
@@ -44,5 +33,17 @@ public class Program {
 			System.out.print(array[i] + "  ");
 		}
 		System.out.print("\n");
+	}
+	
+	public static void printData(int[] array, Sorts sort, String name)
+	{
+		System.out.println("\n--"+ name.toUpperCase() +" SORT--");
+		array = arrayInit();
+		printArray(array);
+		Long prevTime = System.nanoTime();
+		sort.sort(array);
+		Long diffTime = System.nanoTime() - prevTime;
+		printArray(array);
+		System.out.println("Took " + (diffTime.doubleValue() /  10000000.0) + " seconds");
 	}
 }
