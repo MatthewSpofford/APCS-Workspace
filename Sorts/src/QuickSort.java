@@ -8,29 +8,48 @@ public class QuickSort implements Sorts{
 	
 	private void doQuickSort(int[] array, int pivot, int start, int end)
 	{
-		if(end - start <= 1)
-		{
-			return;
-		}
-		else
-		{
-			int val = array[pivot];
-			int startIndex;
-			int endIndex = end - 1;
-			for(startIndex = start; startIndex < end && startIndex > endIndex; startIndex++)
+//		System.out.print("\n");
+//		printArray(array);
+//		System.out.print("Start: " + start + "	End: " + end + "\n");
+//		System.out.print("-----------------------------------------------------------------\n");
+		int val = array[pivot];
+		int startIndex = start;
+		int endIndex = end - 1;
+		while(startIndex <= endIndex && startIndex < array.length && endIndex > 0)
+		{	
+			while(!(array[startIndex] >= val))
+				startIndex++;
+			while(!(array[endIndex] <= val))
+				endIndex--;
+		
+			if(startIndex <= endIndex)
 			{
-				if(array[startIndex] >= val && array[endIndex] <= val)
-				{
-					int temp = array[startIndex];
-					array[startIndex] = array[endIndex];
-					array[endIndex++] = temp;
-				}
+				int temp = array[startIndex];
+				array[startIndex] = array[endIndex];
+				array[endIndex] = temp;
+				
+				endIndex--;
+				startIndex++;
 			}
-			
-			doQuickSort(array, (startIndex - start)/2, start, startIndex);
-			doQuickSort(array, , startIndex, end);
-			return;
 		}
+		
+		if(startIndex == start)
+			return;
+		
+//		printArray(array);
+//		System.out.print("Start: " + start + "	End: " + end + "\n");
+//		System.out.print("\n");
+		
+		doQuickSort(array, (startIndex + start)/2, start, startIndex);
+		doQuickSort(array, (end + startIndex)/2, startIndex, end);
+		return;
+	}
+	
+	public void printArray(int[] array)
+	{
+		for(int i = 0; i < array.length; i++)
+			System.out.print(array[i] + "  ");
+		System.out.println();
 	}
 }
 
