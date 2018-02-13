@@ -16,6 +16,10 @@ public class Program {
 		}
 		
 		ArrayList<Module> result = stavMethod(arrayList);
+		for(int i = result.get(0).start; i <= result.get(0).end; i++)
+		{
+			System.out.print(array[i] + "  ");
+		}
 	}
 
 	public static ArrayList<Module> stavMethod(ArrayList<Module> array) {
