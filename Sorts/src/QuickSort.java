@@ -15,14 +15,9 @@ public class QuickSort implements Sorts{
 		int val = array[pivot];
 		int startIndex = start;
 		int endIndex = end - 1;
-		while(startIndex <= endIndex && startIndex < array.length && endIndex > 0)
+		while(startIndex <= endIndex && startIndex < array.length && endIndex >= 0)
 		{	
-			while(!(array[startIndex] >= val))
-				startIndex++;
-			while(!(array[endIndex] <= val))
-				endIndex--;
-		
-			if(startIndex <= endIndex)
+			if(array[startIndex] >= val && array[endIndex] <= val)
 			{
 				int temp = array[startIndex];
 				array[startIndex] = array[endIndex];
@@ -30,6 +25,13 @@ public class QuickSort implements Sorts{
 				
 				endIndex--;
 				startIndex++;
+			}
+			else
+			{
+				if(!(array[endIndex] <= val))
+					endIndex--;
+				if(!(array[startIndex] >= val))
+					startIndex++;
 			}
 		}
 		
