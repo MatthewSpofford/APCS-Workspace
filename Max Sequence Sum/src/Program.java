@@ -23,12 +23,17 @@ public class Program {
 		}
 		
 		
-		//This works!!!
+		/** 
+		 * This is the brute force method, which works
+		 */
+		Long startTime = System.nanoTime();
 		int[] newArray = mattMethod(array);
+		Long totalTime = System.nanoTime() - startTime;
 		for(int i = 0; i < newArray.length; i++)
 		{
 			System.out.print(newArray[i] + "  ");
 		}
+		System.out.println("\nTook " + totalTime.doubleValue()/1000000000 + " nanoseconds");
 	}
 
 	public static ArrayList<Module> stavMethod(ArrayList<Module> array) {
@@ -40,15 +45,17 @@ public class Program {
 		{
 			removeNegatives(array);
 			
-			
+			array = combineModulues(array);
 			
 			return stavMethod(array);
 		}
 	}
 
-	public static void combineModulues(ArrayList<Module> array)
+	public static ArrayList<Module> combineModulues(ArrayList<Module> array)
 	{
+		ArrayList<Module> output = new ArrayList<Module>();
 		
+		return output;
 	}
 	
 	public static void removeNegatives(ArrayList<Module> array) {

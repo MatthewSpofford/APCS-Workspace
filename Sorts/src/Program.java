@@ -44,6 +44,6 @@ public class Program {
 		sort.sort(array);
 		Long diffTime = System.nanoTime() - prevTime;
 		printArray(array);
-		System.out.println("Took " + (diffTime.doubleValue() /  10000000.0) + " seconds");
+		System.out.println("Took " + (diffTime.doubleValue() /  1000000000.0) + " seconds");
 	}
 }
