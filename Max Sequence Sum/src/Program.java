@@ -7,6 +7,7 @@ public class Program {
 
 		int[] array = { -4, 3, -1, 5, 6, -2, -9, 12, -3, 5, 7, -5, -1, 0, 1, -3 };
 		
+		//TODO Finish the Stav-method
 		ArrayList<Module> arrayList = new ArrayList<Module>();
 		
 		for(int i = 0; i < array.length; i++)
@@ -19,6 +20,14 @@ public class Program {
 		for(int i = result.get(0).start; i <= result.get(0).end; i++)
 		{
 			System.out.print(array[i] + "  ");
+		}
+		
+		
+		//This works!!!
+		int[] newArray = mattMethod(array);
+		for(int i = 0; i < newArray.length; i++)
+		{
+			System.out.print(newArray[i] + "  ");
 		}
 	}
 
@@ -48,5 +57,35 @@ public class Program {
 			array.remove(0);
 		while(array.get(array.size()-1).sum < 0 && array.size() >= 1)
 			array.remove(array.size()-1);
+	}
+	
+	
+	public static int[] mattMethod(int[] array)
+	{
+		int startResult = 0;
+		int endResult = 0;
+		int sumResult = 0;
+		
+		for(int i = 0; i < array.length; i++)
+		{
+			int sum = 0;
+			for(int j = i; j < array.length; j++)
+			{
+				sum += array[j];
+				if(sum > sumResult)
+				{
+					startResult = i;
+					endResult = j;
+					sumResult = sum;
+				}
+			}
+		}
+		
+		int[] output = new int[endResult - startResult + 1];
+		for(int i = 0; i < output.length; i++)
+		{
+			output[i] = array[i + startResult];
+		}
+		return output;
 	}
 }
