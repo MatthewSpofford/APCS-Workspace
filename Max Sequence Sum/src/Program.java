@@ -33,7 +33,7 @@ public class Program {
 		{
 			System.out.print(newArray[i] + "  ");
 		}
-		System.out.println("\nTook " + totalTime.doubleValue()/1000000000 + " nanoseconds");
+		System.out.println("\nTook " + totalTime.doubleValue()/1000000000 + " seconds");
 	}
 
 	public static ArrayList<Module> stavMethod(ArrayList<Module> array) {
