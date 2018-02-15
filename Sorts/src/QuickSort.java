@@ -8,50 +8,44 @@ public class QuickSort implements Sorts{
 	
 	private void doQuickSort(int[] array, int pivot, int start, int end)
 	{
-//		System.out.print("\n");
-//		printArray(array);
-//		System.out.print("Start: " + start + "	End: " + end + "\n");
-//		System.out.print("-----------------------------------------------------------------\n");
-		int val = array[pivot];
-		int startIndex = start;
-		int endIndex = end - 1;
-		while(startIndex <= endIndex && startIndex < array.length && endIndex >= 0)
-		{	
-			if(array[startIndex] >= val && array[endIndex] <= val)
-			{
-				int temp = array[startIndex];
-				array[startIndex] = array[endIndex];
-				array[endIndex] = temp;
-				
-				endIndex--;
-				startIndex++;
-			}
-			else
-			{
-				if(!(array[endIndex] <= val))
-					endIndex--;
-				if(!(array[startIndex] >= val))
-					startIndex++;
-			}
-		}
-		
-		if(startIndex == start)
+		if(end - start <= 1)
+		{
 			return;
-		
-//		printArray(array);
-//		System.out.print("Start: " + start + "	End: " + end + "\n");
-//		System.out.print("\n");
-		
-		doQuickSort(array, (startIndex + start)/2, start, startIndex);
-		doQuickSort(array, (end + startIndex)/2, startIndex, end);
-		return;
+		}
+		else
+		{
+			int val = array[pivot];
+			int startIndex = start;
+			int endIndex = end - 1;
+//			printArray(array);
+			while(startIndex < end && startIndex <= endIndex)
+			{
+				if(array[startIndex] >= val && array[endIndex] < val)
+				{
+					int temp = array[startIndex];
+					array[startIndex++] = array[endIndex];
+					array[endIndex--] = temp;
+				}
+				if(array[startIndex] < val)
+				{
+					startIndex++;
+				}
+				if(array[endIndex] >= val)
+				{
+					endIndex--;
+				}
+			}
+			
+			doQuickSort(array, (startIndex - start)/2 + start, start, startIndex);
+			doQuickSort(array, (end - startIndex)/2 + startIndex, startIndex, end);
+			return;
+		}
 	}
 	
 	public void printArray(int[] array)
 	{
 		for(int i = 0; i < array.length; i++)
 			System.out.print(array[i] + "  ");
-		System.out.println();
+		System.out.println("\n");
 	}
 }
-
