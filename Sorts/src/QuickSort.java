@@ -20,7 +20,7 @@ public class QuickSort implements Sorts{
 //			printArray(array);
 			while(startIndex < end && startIndex <= endIndex)
 			{
-				if(array[startIndex] >= val && array[endIndex] < val)
+				if(array[startIndex] > val && array[endIndex] <= val)
 				{
 					int temp = array[startIndex];
 					array[startIndex++] = array[endIndex];
