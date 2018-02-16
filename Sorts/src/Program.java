@@ -3,27 +3,50 @@ public class Program {
 
 	public static void main(String[] args)
 	{
-		int[] array = arrayInit();
+		int[] array = arrayInit(20);
 		Sorts sort = new BubbleSort();			//O(n^2) or O(289)
-		printData(array, sort, "Bubble");
+		printArraySort(array, sort, "Bubble");
 		
 		sort = new InsertionSort();				//O(n^2) or O(289)
-		printData(array, sort, "Insertion");
+		printArraySort(array, sort, "Insertion");
 
 		sort = new SelectionSort();				//O(n^2) or O(289)
-		printData(array, sort, "Selection");
+		printArraySort(array, sort, "Selection");
 		
 		sort = new MergeSort();					//O(n log n) or O(20.918)
-		printData(array, sort, "Merge");
+		printArraySort(array, sort, "Merge");
 		
 		sort = new QuickSort();					//O(n log n) = best, O(n^2) = worst or O(20.918) = best, O(289) = worst
-		printData(array, sort, "Quick");
+		printArraySort(array, sort, "Quick");
 	}
 	
-	public static int[] arrayInit()
+	public static int[] arrayInit(int size)
 	{
-		int[] array = {10, 14, 4, 16, 7, 9, 13, 6, 3, 12, 5, 2, 15, 1, 11, 8, 0};
-		return array;
+		int[] array = new int[size];
+		for(int i = 0; i < array.length; i++)
+		{
+			array[i] = i;
+		}
+		boolean[] check = new boolean[size];
+		for(int i = 0; i < check.length; i++)
+		{
+			check[i] = false;
+		}
+		
+		int[] output = new int[size];
+		int index = 0;
+		while(index < output.length)
+		{
+			int pos = (int) (Math.random() * array.length);
+			
+			if(!check[pos])
+			{
+				output[index++] = array[pos];
+				check[pos] = true;
+			}
+		}
+		
+		return output;
 	}
 	
 	public static void printArray(int[] array)
@@ -35,10 +58,10 @@ public class Program {
 		System.out.print("\n");
 	}
 	
-	public static void printData(int[] array, Sorts sort, String name)
+	public static void printArraySort(int[] array, Sorts sort, String name)
 	{
 		System.out.println("\n--"+ name.toUpperCase() +" SORT--");
-		array = arrayInit();
+		array = arrayInit(20);
 		printArray(array);
 		Long prevTime = System.nanoTime();
 		sort.sort(array);

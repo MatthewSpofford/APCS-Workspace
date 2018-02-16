@@ -20,19 +20,22 @@ public class QuickSort implements Sorts{
 //			printArray(array);
 			while(startIndex < end && startIndex <= endIndex)
 			{
-				if(array[startIndex] > val && array[endIndex] <= val)
+				if(array[startIndex] >= val && array[endIndex] <= val)
 				{
 					int temp = array[startIndex];
 					array[startIndex++] = array[endIndex];
 					array[endIndex--] = temp;
 				}
-				if(array[startIndex] < val)
+				else
 				{
-					startIndex++;
-				}
-				if(array[endIndex] >= val)
-				{
-					endIndex--;
+					if(array[startIndex] < val)
+					{
+						startIndex++;
+					}
+					if(array[endIndex] >= val)
+					{
+						endIndex--;
+					}
 				}
 			}
 			
