@@ -4,19 +4,19 @@ public class Program {
 	public static void main(String[] args)
 	{
 		int[] array = arrayInit(20);
-		Sorts sort = new BubbleSort();			//O(n^2) or O(289)
+		Sorts sort = new BubbleSort();			//O(n^2)
 		printArraySort(array, sort, "Bubble");
 		
-		sort = new InsertionSort();				//O(n^2) or O(289)
+		sort = new InsertionSort();				//O(n^2)
 		printArraySort(array, sort, "Insertion");
 
-		sort = new SelectionSort();				//O(n^2) or O(289)
+		sort = new SelectionSort();				//O(n^2)
 		printArraySort(array, sort, "Selection");
 		
-		sort = new MergeSort();					//O(n log n) or O(20.918)
+		sort = new MergeSort();					//O(n log n)
 		printArraySort(array, sort, "Merge");
 		
-		sort = new QuickSort();					//O(n log n) = best, O(n^2) = worst or O(20.918) = best, O(289) = worst
+		sort = new QuickSort();					//O(n log n) = best, O(n^2) = worst
 		printArraySort(array, sort, "Quick");
 	}
 	
