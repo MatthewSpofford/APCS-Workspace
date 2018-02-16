@@ -17,7 +17,6 @@ public class QuickSort implements Sorts{
 			int val = array[pivot];
 			int startIndex = start;
 			int endIndex = end - 1;
-//			printArray(array);
 			while(startIndex < end && startIndex <= endIndex)
 			{
 				if(array[startIndex] >= val && array[endIndex] <= val)

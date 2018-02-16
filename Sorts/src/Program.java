@@ -3,7 +3,7 @@ public class Program {
 
 	public static void main(String[] args)
 	{
-		int[] array = arrayInit(100);
+		int[] array = null;
 		Sorts sort = new BubbleSort();			//O(n^2)
 		printArraySort(array, sort, "Bubble");
 		
@@ -61,7 +61,7 @@ public class Program {
 	public static void printArraySort(int[] array, Sorts sort, String name)
 	{
 		System.out.println("\n--"+ name.toUpperCase() +" SORT--");
-		array = arrayInit(10);
+		array = arrayInit(100000);
 		printArray(array);
 		Long prevTime = System.nanoTime();
 		sort.sort(array);
