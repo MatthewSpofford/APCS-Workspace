@@ -11,9 +11,11 @@
 public class Sort {
 
 	/************************
-	 * Implements Bubble Sort 1.Scan list and compare adjacent elements 2.Swap if
-	 * out of order and set a flag 3.Repeat 1-2 until no swaps are made (flag is
-	 * false) scanning one less at the end each pass Pre: unsorted array parameter
+	 * Implements Bubble Sort 
+	 * 1.Scan list and compare adjacent elements 
+	 * 2.Swap if out of order and set a flag 
+	 * 3.Repeat 1-2 until no swaps are made (flag is false) scanning one less at the end each pass 
+	 * Pre: unsorted array parameter
 	 * Post: sorted array parameter
 	 * 
 	 * @param aSort
@@ -35,10 +37,14 @@ public class Sort {
 	}
 
 	/************************
-	 * Implements Insertion Sort 1.Start with a sorted list of one value 2.Add
-	 * another value and sort the values, placing in correct location 3.Repeat 2-3
-	 * shifting sorted values to the right until it is placed in the correct
-	 * position Pre: unsorted array parameter Post: sorted array parameter
+	 * Implements Insertion Sort 
+	 * 1.Start with a sorted list of one value 
+	 * 2.Add another value and sort the values, placing in correct 
+	 * 	location 
+	 * 3.Repeat 2-3 shifting sorted values to the right until it
+	 *  is placed in the correct position 
+	 * Pre: unsorted array parameter 
+	 * Post: sorted array parameter
 	 * 
 	 * @param aSort
 	 *            integer array
