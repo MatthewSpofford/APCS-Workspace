@@ -3,7 +3,8 @@ public class Client {
 
 	public static void main(String[] args) {
 		
-		
+		int[] test = arrayInit(-20, 20);
+		printArray(test);
 	}
 	
 	public static int[] arrayInit(int startRange, int endRange)
@@ -12,7 +13,7 @@ public class Client {
 		int[] array = new int[size];
 		for(int i = 0; i < array.length; i++)
 		{
-			array[i] = i;
+			array[i] = startRange+i;
 		}
 		boolean[] check = new boolean[size];
 		for(int i = 0; i < check.length; i++)
