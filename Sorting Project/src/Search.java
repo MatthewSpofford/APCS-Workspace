@@ -39,9 +39,18 @@ public class Search {
 
 	/**
 	 * Implements a Binary Search 
-	 * 1. Start at the middle of the list
-	 * 2. 
-	 * 2. If the number being search for is less than the current number,
+	 * 1. Set the min index to first array index, and max index to last
+	 *    array index (exclusive).
+	 * 2. Read middle number between the min and max index.
+	 *    a. If the number being searched for is less than the current 
+	 *       number, set the max index to the current position.
+	 *    b. If the number being searched for is greater than the current
+	 *       number, set the min index to one over from the current position.
+	 *    c. If the number being searched for is equal to the current 
+	 *       number, output the current numbers position and stop.
+	 * 3. Repeat step 2 until the difference between the min and max is
+	 *    less than or equal to zero.
+	 * 4. Output -1 and stop.
 	 * 
 	 * Pre: list must be sorted
 	 * 
@@ -56,7 +65,7 @@ public class Search {
 		int minIndex = 0;
 		int maxIndex = list.length;
 		
-		while((maxIndex - minIndex) >= 0) {
+		while((maxIndex - minIndex) > 0) {
 			int currentIndex = (maxIndex - minIndex)/2 + minIndex;
 			
 			if(list[currentIndex] == num) {
