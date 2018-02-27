@@ -69,9 +69,9 @@ public class Client {
 		System.out.println("\n\n-------------2. SORT TIMING-------------\n");
 		
 		timeAllSorts(1, 1000, 1000);
-		timeAllSorts(1, 1000, 1000);
-		timeAllSorts(1, 100000, 100000);
-		timeAllSorts(1, 500000, 500000);
+		timeAllSorts(1, 5000, 5000);
+		timeAllSorts(1, 100000, 10000);
+		timeAllSorts(1, 500000, 50000);
 		
 	}
 	
