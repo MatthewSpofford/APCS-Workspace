@@ -74,6 +74,8 @@ public class Client {
 		timeAllSorts(1, 500000, 50000);
 		timeAllButBubbleSorts(1, 100000, 100000);
 		timeAllButBubbleSorts(1, 500000, 500000);
+		timeMergeAndQuickSorts(1, 100000000, 100000000);
+		timeMergeAndQuickSorts(1, 500000000, 500000000);
 	}
 	
 	/**
@@ -192,17 +194,17 @@ public class Client {
 		stopwatch.stop();
 		long quickTime = stopwatch.getElapsedTime();
 		
-		System.out.println("|-----------------------|");
-		System.out.println("|Size " + size + " Array\t\t|");
-		System.out.println("|-----------------------|");
+		System.out.println("|-------------------------------|");
+		System.out.println("|" + startRange + "-" + endRange + ", Size " + size + " Array\t|");
+		System.out.println("|-------------------------------|");
 		System.out.println("|Sort\t\t| Millisecs\t|");
-		System.out.println("|-----------------------|");
+		System.out.println("|-------------------------------|");
 		System.out.println("|BUBBLE\t\t| " + bubbleTime + "\t\t|");
 		System.out.println("|INSERTION\t| " + insertionTime + "\t\t|");
 		System.out.println("|SELECTION\t| " + selectionTime + "\t\t|");
 		System.out.println("|MERGE\t\t| " + mergeTime + "\t\t|");
 		System.out.println("|QUICK\t\t| " + quickTime + "\t\t|");
-		System.out.println("|-----------------------|\n");
+		System.out.println("|-------------------------------|\n");
 	}
 	
 	/**
@@ -250,15 +252,56 @@ public class Client {
 		stopwatch.stop();
 		long quickTime = stopwatch.getElapsedTime();
 		
-		System.out.println("|-----------------------|");
-		System.out.println("|Size " + size + " Array\t\t|");
-		System.out.println("|-----------------------|");
+		System.out.println("|-------------------------------|");
+		System.out.println("|" + startRange + "-" + endRange + ", Size " + size + " Array\t|");
+		System.out.println("|-------------------------------|");
 		System.out.println("|Sort\t\t| Millisecs\t|");
-		System.out.println("|-----------------------|");
+		System.out.println("|-------------------------------|");
 		System.out.println("|INSERTION\t| " + insertionTime + "\t\t|");
 		System.out.println("|SELECTION\t| " + selectionTime + "\t\t|");
 		System.out.println("|MERGE\t\t| " + mergeTime + "\t\t|");
 		System.out.println("|QUICK\t\t| " + quickTime + "\t\t|");
-		System.out.println("|-----------------------|\n");
+		System.out.println("|-------------------------------|\n");
+	}
+	
+	/**
+	 * Times all of the sorting algorithms except bubble for an array of 
+	 * a given size and range.
+	 * Pre: startRange must be less than endRange, and must be integers.
+	 * 		Size cannot be less than 0.
+	 * Post: Prints a table of how long (milliseconds) each sort took for the array,
+	 *       and titles the table with the array size
+	 * 
+	 * @param startRange - Starting value for the range.
+	 * @param endRange - Ending value for the range.
+	 * @param size - is the size of the array being created. Cannot be less than 0.
+	 */
+	public static void timeMergeAndQuickSorts(int startRange, int endRange, int size)
+	{
+		int[] array = arrayInit(startRange, endRange, size);
+		int[] copy = copyArray(array);
+		
+		//Starts timing for merge sort
+		StopWatch1 stopwatch = new StopWatch1();
+		stopwatch.start();
+		Sort.mergeSort(copy);
+		stopwatch.stop();
+		long mergeTime = stopwatch.getElapsedTime();
+		
+		//Starts timing for quick sort
+		stopwatch = new StopWatch1();
+		stopwatch.start();
+		Sort.quickSort(copy);
+		stopwatch.stop();
+		long quickTime = stopwatch.getElapsedTime();
+		
+		System.out.println("|-------------------------------|");
+		System.out.println("|" + startRange + "-" + endRange + ", Size " + size + " Array\t|");
+		System.out.println("|-------------------------------|");
+		System.out.println("|Sort\t\t| Millisecs\t|");
+		System.out.println("|-------------------------------|");
+		System.out.println("|MERGE\t\t| " + mergeTime + "\t\t|");
+		System.out.println("|QUICK\t\t| " + quickTime + "\t\t|");
+		System.out.println("|-------------------------------|\n");
 	}
 }
