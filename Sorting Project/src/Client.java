@@ -72,7 +72,8 @@ public class Client {
 		timeAllSorts(1, 5000, 5000);
 		timeAllSorts(1, 100000, 10000);
 		timeAllSorts(1, 500000, 50000);
-		
+		timeAllButBubbleSorts(1, 100000, 100000);
+		timeAllButBubbleSorts(1, 500000, 500000);
 	}
 	
 	/**
@@ -192,13 +193,72 @@ public class Client {
 		long quickTime = stopwatch.getElapsedTime();
 		
 		System.out.println("|-----------------------|");
-		System.out.println("|Size " + size + " Array\t|");
+		System.out.println("|Size " + size + " Array\t\t|");
 		System.out.println("|-----------------------|");
-		System.out.println("|BUBBLE\t\t| " + bubbleTime + "\t|");
-		System.out.println("|INSERTION\t| " + insertionTime + "\t|");
-		System.out.println("|SELECTION\t| " + selectionTime + "\t|");
-		System.out.println("|MERGE\t\t| " + mergeTime + "\t|");
-		System.out.println("|QUICK\t\t| " + quickTime + "\t|");
+		System.out.println("|Sort\t\t| Millisecs\t|");
+		System.out.println("|-----------------------|");
+		System.out.println("|BUBBLE\t\t| " + bubbleTime + "\t\t|");
+		System.out.println("|INSERTION\t| " + insertionTime + "\t\t|");
+		System.out.println("|SELECTION\t| " + selectionTime + "\t\t|");
+		System.out.println("|MERGE\t\t| " + mergeTime + "\t\t|");
+		System.out.println("|QUICK\t\t| " + quickTime + "\t\t|");
+		System.out.println("|-----------------------|\n");
+	}
+	
+	/**
+	 * Times all of the sorting algorithms except bubble for an array of 
+	 * a given size and range.
+	 * Pre: startRange must be less than endRange, and must be integers.
+	 * 		Size cannot be less than 0.
+	 * Post: Prints a table of how long (milliseconds) each sort took for the array,
+	 *       and titles the table with the array size
+	 * 
+	 * @param startRange - Starting value for the range.
+	 * @param endRange - Ending value for the range.
+	 * @param size - is the size of the array being created. Cannot be less than 0.
+	 */
+	public static void timeAllButBubbleSorts(int startRange, int endRange, int size)
+	{
+		int[] array = arrayInit(startRange, endRange, size);
+		int[] copy = copyArray(array);
+		
+		//Starts timing for insertion sort
+		StopWatch1 stopwatch = new StopWatch1();
+		stopwatch.start();
+		Sort.insertionSort(copy);
+		stopwatch.stop();
+		long insertionTime = stopwatch.getElapsedTime();
+		
+		//Starts timing for selection sort
+		stopwatch = new StopWatch1();
+		stopwatch.start();
+		Sort.selectionSort(copy);
+		stopwatch.stop();
+		long selectionTime = stopwatch.getElapsedTime();
+		
+		//Starts timing for merge sort
+		stopwatch = new StopWatch1();
+		stopwatch.start();
+		Sort.mergeSort(copy);
+		stopwatch.stop();
+		long mergeTime = stopwatch.getElapsedTime();
+		
+		//Starts timing for quick sort
+		stopwatch = new StopWatch1();
+		stopwatch.start();
+		Sort.quickSort(copy);
+		stopwatch.stop();
+		long quickTime = stopwatch.getElapsedTime();
+		
+		System.out.println("|-----------------------|");
+		System.out.println("|Size " + size + " Array\t\t|");
+		System.out.println("|-----------------------|");
+		System.out.println("|Sort\t\t| Millisecs\t|");
+		System.out.println("|-----------------------|");
+		System.out.println("|INSERTION\t| " + insertionTime + "\t\t|");
+		System.out.println("|SELECTION\t| " + selectionTime + "\t\t|");
+		System.out.println("|MERGE\t\t| " + mergeTime + "\t\t|");
+		System.out.println("|QUICK\t\t| " + quickTime + "\t\t|");
 		System.out.println("|-----------------------|\n");
 	}
 }
