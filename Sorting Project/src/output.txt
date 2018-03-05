@@ -1,0 +1,181 @@
+-------------1. SORTS AND SEARCHES TESTING-------------
+
+BUBBLE SORT:	
+Start 	= -18  -8  -2  -9  -20  4  -14  -3  -11  -4  18  -15  1  -5  -7  -17  19  -13  18  17
+End 	= -20  -18  -17  -15  -14  -13  -11  -9  -8  -7  -5  -4  -3  -2  1  4  17  18  18  19
+
+INSERTION SORT: 
+Start 	= 3  10  19  8  3  8  -11  4  2  13  8  -14  16  -18  -20  -8  -20  15  13  -10
+End 	= -20  -20  -18  -14  -11  -10  -8  2  3  3  4  8  8  8  10  13  13  15  16  19
+
+SELECTION SORT: 
+Start 	= 5  4  -14  -5  20  10  -2  1  -8  -10  11  18  -10  14  11  14  3  -14  -4  -7
+End 	= -14  -14  -10  -10  -8  -7  -5  -4  -2  1  3  4  5  10  11  11  14  14  18  20
+
+MERGE SORT:	
+Start 	= 11  16  8  1  -12  -13  12  -11  -19  -7  -1  -5  5  3  11  -2  6  5  -3  -1
+End 	= -19  -13  -12  -11  -7  -5  -3  -2  -1  -1  1  3  5  5  6  8  11  11  12  16
+
+QUICK SORT:	
+Start 	= 15  -10  -15  0  4  -16  15  -5  19  -7  -20  9  -8  -9  -4  14  -12  16  7  -4
+End 	= -20  -16  -15  -12  -10  -9  -8  -7  -5  -4  -4  0  4  7  9  14  15  15  16  19
+
+LINEAR SEARCH: 
+Array = -13  6  7  19  16  -8  17  -20  13  -14  16  -19  -8  -6  0  -2  -5  -7  7  -8
+Number Being Searched = 0
+Index = 14
+
+BINARY SEARCH: 
+Array = -16  -16  -14  -14  -10  -6  -3  -1  0  1  2  3  9  9  10  13  13  17  17  19
+Number Being Searched = -15
+Index = -1
+
+
+-------------2. SORT TIMING-------------
+
+
+1-1000, Size 1000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+BUBBLE SORT:	6 ms
+INSERTION SORT: 3 ms
+SELECTION SORT: 2 ms
+MERGE SORT:	1 ms
+QUICK SORT:	1 ms
+
+
+1-5000, Size 5000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+BUBBLE SORT:	31 ms
+INSERTION SORT: 10 ms
+SELECTION SORT: 7 ms
+MERGE SORT:	1 ms
+QUICK SORT:	0 ms
+
+
+1-100000, Size 10000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+BUBBLE SORT:	136 ms
+INSERTION SORT: 40 ms
+SELECTION SORT: 28 ms
+MERGE SORT:	1 ms
+QUICK SORT:	1 ms
+
+
+1-500000, Size 50000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+BUBBLE SORT:	4154 ms
+INSERTION SORT: 951 ms
+SELECTION SORT: 654 ms
+MERGE SORT:	7 ms
+QUICK SORT:	5 ms
+
+
+1-100000, Size 100000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+INSERTION SORT: 3847 ms
+SELECTION SORT: 2663 ms
+MERGE SORT:	16 ms
+QUICK SORT:	10 ms
+
+
+1-500000, Size 500000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+INSERTION SORT: 97802 ms
+SELECTION SORT: 66390 ms
+MERGE SORT:	84 ms
+QUICK SORT:	55 ms
+
+
+1-1000000, Size 1000000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+MERGE SORT:	164 ms
+QUICK SORT:	117 ms
+
+
+1-5000000, Size 5000000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+MERGE SORT:	919 ms
+QUICK SORT:	633 ms
+
+
+-------------3. TYPES OF LIST TIMING-------------
+
+
+1-200000, Size 200000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+INSERTION SORT: 15589 ms
+SELECTION SORT: 10696 ms
+MERGE SORT:	34 ms
+QUICK SORT:	21 ms
+
+
+1-200000, Size 200000 Array
+Array is sorted beforehand
+Sort	:	 Milliseconds
+---------------------------------
+INSERTION SORT: 12114 ms
+SELECTION SORT: 10673 ms
+MERGE SORT:	18 ms
+QUICK SORT:	6 ms
+
+
+1-200000, Size 200000 Array
+Array is reverse sorted beforehand
+Sort	:	 Milliseconds
+---------------------------------
+INSERTION SORT: 19428 ms
+SELECTION SORT: 42941 ms
+MERGE SORT:	12 ms
+QUICK SORT:	6 ms
+
+
+1-20, Size 200000 Array
+Array is random beforehand
+Sort	:	 Milliseconds
+---------------------------------
+INSERTION SORT: 15980 ms
+SELECTION SORT: 10750 ms
+MERGE SORT:	20 ms
+QUICK SORT:	8 ms
+
+
+-------------4. SEARCH TIMING-------------
+
+
+1-5000000, Size 5000000 Array
+Array is random beforehand
+Search:	 Milliseconds
+---------------------------------
+LINEAR SEARCH: 5 ms
+
+
+1-5000000, Size 5000000 Array
+Array is sorted beforehand
+Search:	 Milliseconds
+---------------------------------
+LINEAR SEARCH: 3 ms
+
+
+1-5000000, Size 5000000 Array
+Array is sorted beforehand
+Search:	 Milliseconds
+---------------------------------
+BINARY SEARCH: 0 ms

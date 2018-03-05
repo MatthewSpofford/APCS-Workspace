@@ -14,8 +14,8 @@ public class Client {
 	private static final int QUICK_SORT = 5;
 	
 	//Flags representing what searches will be used for searchArray()
-	private static final int LINEAR_SEARCH = 1;
-	private static final int BINARY_SEARCH = 2;
+	private static final boolean LINEAR_SEARCH = true;
+	private static final boolean BINARY_SEARCH = false;
 	
 	//Flags for time sort methods representing how the array being sorted should be setup
 	private static final int TIME_RANDOM = 0;
@@ -30,6 +30,38 @@ public class Client {
 		
 		System.out.println("-------------1. SORTS AND SEARCHES TESTING-------------\n");
 		
+		sortAndSearchTesting();
+		
+		System.out.println("\n-------------2. SORT TIMING-------------");
+		
+		timeAllSorts(1, 1000, 1000, TIME_RANDOM);
+		timeAllSorts(1, 5000, 5000, TIME_RANDOM);
+		timeAllSorts(1, 100000, 10000, TIME_RANDOM);
+		timeAllSorts(1, 500000, 50000, TIME_RANDOM);
+		timeAllButBubbleSorts(1, 100000, 100000, TIME_RANDOM);
+		timeAllButBubbleSorts(1, 500000, 500000, TIME_RANDOM);
+		timeMergeAndQuickSorts(1, 1000000, 1000000, TIME_RANDOM);
+		timeMergeAndQuickSorts(1, 5000000, 5000000, TIME_RANDOM);
+		
+		System.out.println("\n\n-------------3. TYPES OF LIST TIMING-------------");
+		
+		timeAllButBubbleSorts(1, 200000, 200000, TIME_RANDOM);
+		timeAllButBubbleSorts(1, 200000, 200000, TIME_SORTED);
+		timeAllButBubbleSorts(1, 200000, 200000, TIME_REVERSE_SORT);
+		timeAllButBubbleSorts(1, 20, 200000, TIME_RANDOM);
+		
+		System.out.println("\n\n-------------4. SEARCH TIMING-------------");
+		
+		timeLinearSearch(1, 5000000, 5000000, TIME_RANDOM);
+		timeLinearSearch(1, 5000000, 5000000, TIME_SORTED);
+		timeBinarySearch(1, 5000000, 5000000);
+	}
+	
+	/**
+	 * Tests the sorts and searches to make sure that they work as expected
+	 */
+	public static void sortAndSearchTesting()
+	{
 		int[] array = arrayInit(-20, 20, 20);
 		sortArray(array, BUBBLE_SORT, true);
 		
@@ -52,32 +84,8 @@ public class Client {
 		num = (int) (Math.random() * 20 + -20);
 		array = arrayInit(-20, 20, 20);
 		searchArray(array, BINARY_SEARCH, num, true);
-		
-		System.out.println("\n\n-------------2. SORT TIMING-------------");
-		
-		timeAllSorts(1, 1000, 1000, TIME_RANDOM);
-		timeAllSorts(1, 5000, 5000, TIME_RANDOM);
-		timeAllSorts(1, 100000, 10000, TIME_RANDOM);
-		timeAllSorts(1, 500000, 50000, TIME_RANDOM);
-		timeAllButBubbleSorts(1, 100000, 100000, TIME_RANDOM);
-		timeAllButBubbleSorts(1, 500000, 500000, TIME_RANDOM);
-		timeMergeAndQuickSorts(1, 100000000, 100000000, TIME_RANDOM);
-		timeMergeAndQuickSorts(1, 500000000, 500000000, TIME_RANDOM);
-		
-		System.out.println("\n\n-------------3. TYPES OF LIST TIMING-------------\n");
-		
-		timeAllButBubbleSorts(1, 200000, 200000, TIME_RANDOM);
-		timeAllButBubbleSorts(1, 200000, 200000, TIME_SORTED);
-		timeAllButBubbleSorts(1, 200000, 200000, TIME_REVERSE_SORT);
-		timeAllButBubbleSorts(1, 20, 200000, TIME_RANDOM);
-		
-		System.out.println("\n\n-------------3. SEARCH TIMING-------------\n");
-		
-		timeLinearSearch(1, 5000000, 5000000, TIME_RANDOM);
-		timeLinearSearch(1, 5000000, 5000000, TIME_SORTED);
-		timeBinarySearch(1, 5000000, 5000000);
 	}
-		
+	
 	/**
 	 * Prints important information about the time sort methods
 	 * 
@@ -99,27 +107,21 @@ public class Client {
 	 */
 	public static void printTimeInfo(final boolean sortOrSearch, int startRange, int endRange, int size, int flag)
 	{
+		System.out.println("\n\n" + startRange + "-" + endRange + ", Size " + size + " Array");
 		if(flag == TIME_RANDOM) {
-			System.out.println("\n\n|-------------------------------|");
-			System.out.println("|Array is random beforehand\t|");
-			System.out.println("|-------------------------------|");
+			System.out.println("Array is random beforehand");
 		} else if(flag == TIME_SORTED) {
-			System.out.println("|-------------------------------|");
-			System.out.println("|Array is sorted beforehand\t|");
-			System.out.println("|-------------------------------|");
+			System.out.println("Array is sorted beforehand");
 		} else if(flag == TIME_REVERSE_SORT) {
-			System.out.println("|-------------------------------|");
-			System.out.println("|Array is reverse sorted beforehand\t|");
-			System.out.println("|-------------------------------|");
+			System.out.println("Array is reverse sorted beforehand");
 		}
-		System.out.println("|" + startRange + "-" + endRange + ", Size " + size + " Array\t|");
-		System.out.println("|-------------------------------|");
+		
 		if(sortOrSearch) {
-			System.out.println("|Sort\t\t| Milliseconds\t|");
+			System.out.println("Sort\t:\t Milliseconds");
 		} else {
-			System.out.println("|Search\t| Milliseconds\t|");
+			System.out.println("Search:\t Milliseconds");
 		}
-		System.out.println("|-------------------------------|");
+		System.out.println("---------------------------------");
 	}
 	
 	/**
@@ -397,31 +399,31 @@ public class Client {
 		
 		switch (sort) {
 		case BUBBLE_SORT:
-			System.out.print(" BUBBLE SORT:\t  ");
+			System.out.print("BUBBLE SORT:\t");
 			stopwatch.start();
 			Sort.bubbleSort(arrayCopy);
 			stopwatch.stop();
 			break;
 		case INSERTION_SORT:
-			System.out.print(" INSERTION SORT:  ");	
+			System.out.print("INSERTION SORT: ");	
 			stopwatch.start();
 			Sort.insertionSort(arrayCopy);
 			stopwatch.stop();
 			break;
 		case SELECTION_SORT:
-			System.out.print(" SELECTION SORT:  ");	
+			System.out.print("SELECTION SORT: ");	
 			stopwatch.start();
 			Sort.selectionSort(arrayCopy);
 			stopwatch.stop();
 			break;
 		case MERGE_SORT:
-			System.out.print(" MERGE SORT:\t  ");	
+			System.out.print("MERGE SORT:\t");	
 			stopwatch.start();
 			Sort.mergeSort(arrayCopy);
 			stopwatch.stop();
 			break;
 		case QUICK_SORT:
-			System.out.print(" QUICK SORT:\t  ");	
+			System.out.print("QUICK SORT:\t");	
 			stopwatch.start();
 			Sort.quickSort(arrayCopy);
 			stopwatch.stop();
@@ -448,48 +450,53 @@ public class Client {
 	 * 
 	 * @param array - Is the given array being sorted.
 	 * @param search - Is the given search being used.
-	 * 					1 = Linear sort
-	 * 					2 = Binary search
+	 * 					true = Linear sort
+	 * 					false = Binary search
 	 * @param num - Number being search for in the array.
 	 * @param printOrTimeArray - 	True to print the array, number being searched for, and its index.  
 	 * 					   			False to print the time taken to do the search.
 	 */
-	public static void searchArray(final int[] array, final int search, final int num, final boolean printOrTimeArray)
+	public static void searchArray(final int[] array, final boolean search, final int num, final boolean printOrTimeArray)
 	{
 		//Index is set to negative one so that if search given is invalid, index will also be invalid
 		int index = -1;
-		//The only reason for copy is so that binary search works correctly
-		int[] arrayCopy = copyArray(array);
 		//Initializes stopwatch for timing the search if needed
 		StopWatch1 stopwatch = new StopWatch1();
 		
 		//Complete either linear or binary search
-		switch (search) {
-		case LINEAR_SEARCH:
-			System.out.print(" LINEAR SEARCH: ");
+		if(search) {
+			System.out.print("LINEAR SEARCH: ");
 			stopwatch.start();
-			index = Search.linearSearch(arrayCopy, num);
+			index = Search.linearSearch(array, num);
 			stopwatch.stop();
-			break;
-		case BINARY_SEARCH:
-			System.out.print(" BINARY SEARCH: ");
+			
+			//Either print the resulting search, or the time taken
+			if(printOrTimeArray) {
+				System.out.println("\nArray = " + arrayToString(array));
+				System.out.println("Number Being Searched = " + num);
+				System.out.println("Index = " + index + "\n");
+			} else {
+				System.out.println(stopwatch.getElapsedTime() + " ms");
+			}
+		} else {
+			//The only reason for copy is so that binary search works correctly
+			int[] arrayCopy = copyArray(array);
+			
+			System.out.print("BINARY SEARCH: ");
 			//Sort array before beginning the binary search
 			Sort.quickSort(arrayCopy);
 			stopwatch.start();	
 			index = Search.binarySearch(arrayCopy, num);
 			stopwatch.stop();
-			break;
-		default:
-			break;
-		}
-		
-		//Either print the resulting search, or the time taken
-		if(printOrTimeArray) {
-			System.out.println("\nArray = " + arrayToString(arrayCopy));
-			System.out.println("Number Being Searched = " + num);
-			System.out.println("Index = " + index + "\n");
-		} else {
-			System.out.println("" + stopwatch.getElapsedTime() + " ms");
+			
+			//Either print the resulting search, or the time taken
+			if(printOrTimeArray) {
+				System.out.println("\nArray = " + arrayToString(arrayCopy));
+				System.out.println("Number Being Searched = " + num);
+				System.out.println("Index = " + index + "\n");
+			} else {
+				System.out.println(stopwatch.getElapsedTime() + " ms");
+			}
 		}
 	}
 

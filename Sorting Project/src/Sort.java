@@ -22,9 +22,13 @@ public class Sort {
 	 *            integer array
 	 **/
 	public static void bubbleSort(int[] aSort) {
+		//Represents if the array did any swapping during the last loop through
 		boolean noSwap = false;
 		while (!noSwap) {
+			//Set no swap to true so that if no swaps occur this time, the sort will complete 
 			noSwap = true;
+			//Loop through the given array and swap the two numbers adjacent to each other
+			//if the number towards the front is greater than the one towards the end
 			for (int i = 0; i < aSort.length - 1; i++) {
 				if (aSort[i] > aSort[i + 1]) {
 					int temp = aSort[i + 1];
@@ -38,10 +42,10 @@ public class Sort {
 
 	/************************
 	 * Implements Insertion Sort 
-	 * 1.Start with a sorted list of one value 
-	 * 2.Add another value and sort the values, placing in correct 
+	 * 1. Start with a sorted list of one value 
+	 * 2. Add another value and sort the values, placing in correct 
 	 * 	location 
-	 * 3.Repeat 2-3 shifting sorted values to the right until it
+	 * 3. Repeat 2-3, shifting sorted values to the right until it
 	 *  is placed in the correct position 
 	 * Pre: unsorted array parameter 
 	 * Post: sorted array parameter
@@ -65,10 +69,13 @@ public class Sort {
 	}
 
 	/************************
-	 * Implements Selection Sort 1.Scan the list to find the smallest value 2.Swap
-	 * with first position 3.Repeat 1-2 Scanning and swapping with the next position
-	 * in the list Until you are at the end of the list Pre: unsorted array
-	 * parameter Post: sorted array parameter
+	 * Implements Selection Sort 
+	 * 1.Scan the list to find the smallest value 
+	 * 2.Swap with first position 
+	 * 3.Repeat 1-2 Scanning and swapping with the next position in the list 
+	 * until you are at the end of the list 
+	 * Pre: given array is not null, and can be unsorted parameter 
+	 * Post: sorted array parameter
 	 * 
 	 * @param aSort
 	 *            integer array
@@ -87,10 +94,13 @@ public class Sort {
 	}
 
 	/************************
-	 * Implements Merge Sort recursively 1.Divide the list in half 2.Sort each half
-	 * (recursively) 3.Merge the two sorted lists Note: Use indexes into the array
-	 * to mark two sublists and a temporary array when merging Pre: unsorted array
-	 * parameter Post: sorted array parameter
+	 * Implements Merge Sort recursively 
+	 * 1.Divide the list in half 
+	 * 2.Sort each half (recursively) 
+	 * 3.Merge the two sorted lists Note: Use indexes into the 
+	 * array to mark two sublists and a temporary array when merging 
+	 * Pre: unsorted array parameter 
+	 * Post: sorted array parameter
 	 * 
 	 * @param aSort
 	 *            integer array
@@ -112,15 +122,20 @@ public class Sort {
 	 * @param end - Is the ending index of the array being sorted (exclusive)
 	 */
 	private static void doMergeSort(int[] array, int start, int end) {
+		//If the partition is one number, than the partition is sorted
 		if (end - start <= 1) {
 			return;
-		} else {
+		}
+		//Else, merge two partitions together
+		else {
 			int aStart = start;
 			int aEnd = (end + start) / 2;
 			int bStart = (end + start) / 2;
 			int bEnd = end;
+			//Create two partitions to start merging
 			doMergeSort(array, aStart, aEnd);
 			doMergeSort(array, bStart, bEnd);
+			//Merges the two partitions
 			merge(array, aStart, aEnd, bStart, bEnd);
 			return;
 		}
@@ -161,16 +176,19 @@ public class Sort {
 			}
 		}
 
+		//Copy merged array into the given array
 		for (int i = 0; i < output.length; i++) {
 			array[i + aStart] = output[i];
 		}
 	}
 
 	/************************
-	 * Implements Quick Sort recursively 1.Divide into two sublists, < and > a pivot
-	 * value 2.Recursively sort each sublist Use the first element in the list as
-	 * the pivot Note: Use indexes into the array to mark two sublists Pre: unsorted
-	 * array parameter Post: sorted array parameter
+	 * Implements Quick Sort recursively 
+	 * 1.Divide into two sublists, < and > a pivot value 
+	 * 2.Recursively sort each sublist Use the first element in the list as
+	 * the pivot Note: Use indexes into the array to mark two sublists 
+	 * Pre: unsorted array parameter 
+	 * Post: sorted array parameter
 	 * 
 	 * @param aSort
 	 *            integer array
@@ -193,18 +211,27 @@ public class Sort {
 	 */
 	private static void doQuickSort(int[] array, int start, int end)
 	{
-		int pivot = (end - start)/2 + start;
+		//If the partition is one number, than the partition is sorted
 		if(end - start <= 1)
 		{
 			return;
 		}
 		else
 		{
+			//Pivot is within the center of the partition being looked at
+			int pivot = (end - start)/2 + start;
+			//Store the number at the pivot location
 			int val = array[pivot];
+			//Represents the starting number of the partition
 			int startIndex = start;
+			//Represents the last number of the partition
 			int endIndex = end - 1;
+			//Loop through the current partition
 			while(startIndex < end && startIndex <= endIndex)
 			{
+				//If the number being looked at towards the start of the partition is greater than or equal
+				//to the pivot value, and the number towards the end of the partition is less than or equal to
+				//the pivot, swap the numbers
 				if(array[startIndex] >= val && array[endIndex] <= val)
 				{
 					int temp = array[startIndex];
@@ -213,10 +240,14 @@ public class Sort {
 				}
 				else
 				{
+					//If the number towards the start of the partition is already less than the pivot value,
+					//keep looking further up the array
 					if(array[startIndex] < val)
 					{
 						startIndex++;
 					}
+					//If the number towards the end of the partition is already greater than the pivot value,
+					//keep looking further down the array
 					if(array[endIndex] >= val)
 					{
 						endIndex--;
@@ -224,6 +255,7 @@ public class Sort {
 				}
 			}
 			
+			//Create two new partitions and continue sorting until the sort is finished
 			doQuickSort(array, start, startIndex);
 			doQuickSort(array, startIndex, end);
 			return;
