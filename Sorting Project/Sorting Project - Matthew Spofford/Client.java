@@ -1,3 +1,5 @@
+package "Sorting Project - Matthew Spofford"
+
 /******************************************************************
  * Program that generates various sizes of random integer arrays, 
  * sorts them using each of the five sorts, timing each one. 
