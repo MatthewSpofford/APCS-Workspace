@@ -105,7 +105,7 @@ public class Client {
 	 * 						1 - Sorts the array before sorting
 	 * 						2 - Reverse sorts the array before sorting
 	 */
-	public static void printTimeInfo(final boolean sortOrSearch, int startRange, int endRange, int size, int flag)
+	public static void printTimeInfo(final boolean sortOrSearch, final int startRange, final int endRange, int size, int flag)
 	{
 		System.out.println("\n\n" + startRange + "-" + endRange + ", Size " + size + " Array");
 		if(flag == TIME_RANDOM) {
@@ -116,10 +116,11 @@ public class Client {
 			System.out.println("Array is reverse sorted beforehand");
 		}
 		
+		//Adds the sort or search title at the end of the 
 		if(sortOrSearch) {
 			System.out.println("Sort\t:\t Milliseconds");
 		} else {
-			System.out.println("Search:\t Milliseconds");
+			System.out.println("Search :\t Milliseconds");
 		}
 		System.out.println("---------------------------------");
 	}
@@ -142,8 +143,10 @@ public class Client {
 	 */
 	public static void timeAllSorts(int startRange, int endRange, int size, int flag)
 	{	
+		//Prints info about the current array being sorted
 		printTimeInfo(true, startRange, endRange, size, flag);
 		
+		//Generate array to sort
 		int[] array = arrayInit(startRange, endRange, size);
 		if(flag == TIME_RANDOM) {
 			//Do nothing since the array is already random
@@ -153,6 +156,7 @@ public class Client {
 			reverseSort(array);
 		}
 		
+		//Do all sorts required of this method
 		sortArray(array, BUBBLE_SORT, false);
 		sortArray(array, INSERTION_SORT, false);
 		sortArray(array, SELECTION_SORT, false);
@@ -178,8 +182,10 @@ public class Client {
 	 */
 	public static void timeAllButBubbleSorts(int startRange, int endRange, int size, int flag)
 	{
+		//Prints info about the current array being sorted
 		printTimeInfo(true, startRange, endRange, size, flag);
-
+		
+		//Generate array to sort
 		int[] array = arrayInit(startRange, endRange, size);
 		if(flag == TIME_RANDOM) {
 			//Do nothing since the array is already random
@@ -189,6 +195,7 @@ public class Client {
 			reverseSort(array);
 		}
 		
+		//Do all sorts required of this method
 		sortArray(array, INSERTION_SORT, false);
 		sortArray(array, SELECTION_SORT, false);
 		sortArray(array, MERGE_SORT, false);
@@ -213,8 +220,10 @@ public class Client {
 	 */
 	public static void timeMergeAndQuickSorts(int startRange, int endRange, int size, int flag)
 	{
+		//Prints info about the current array being sorted
 		printTimeInfo(true, startRange, endRange, size, flag);
-
+		
+		//Generate array to sort
 		int[] array = arrayInit(startRange, endRange, size);
 		if(flag == TIME_RANDOM) {
 			//Do nothing since the array is already random
@@ -224,6 +233,7 @@ public class Client {
 			reverseSort(array);
 		}
 		
+		//Do all sorts required of this method
 		sortArray(array, MERGE_SORT, false);
 		sortArray(array, QUICK_SORT, false);
 	}
@@ -237,19 +247,15 @@ public class Client {
 	 */
 	public static void reverseSort(int[] array)
 	{
-		int[] sorted = copyArray(array);
-		Sort.quickSort(sorted);
+		//Sort the array
+		Sort.quickSort(array);
 		
-		for(int i = 0; i <= sorted.length/2; i++)
+		//Reverse the array
+		for(int i = 0; i <= array.length/2; i++)
 		{
-			int temp = sorted[i];
-			sorted[i] = sorted[(sorted.length - 1) - i];
-			sorted[(sorted.length - 1) - i] = temp;
-		}
-		
-		for(int i = 0; i < array.length; i++)
-		{
-			array[i] = sorted[i];
+			int temp = array[i];
+			array[i] = array[(array.length - 1) - i];
+			array[(array.length - 1) - i] = temp;
 		}
 	}
 	
@@ -268,10 +274,11 @@ public class Client {
 	 * 				0 - Randomly sorts the array before sorting
 	 * 				1 - Sorts the array before sorting
 	 */
-	public static void timeLinearSearch(int startRange, int endRange, int size, int flag)
+	public static void timeLinearSearch(final int startRange, final int endRange, final int size, final int flag)
 	{
+		//Prints info about the current array being searched
 		printTimeInfo(false, startRange, endRange, size, flag);
-		
+		//Generate the array being searched
 		int[] array = arrayInit(startRange, endRange, size);
 		
 		if(flag == TIME_RANDOM) {
@@ -282,6 +289,7 @@ public class Client {
 		
 		//Calculates random number to search for
 		int num = (int) (Math.random() * endRange + startRange);
+		//Searches the array with linear sort
 		searchArray(array, LINEAR_SEARCH, num, false);
 	}
 	
@@ -300,12 +308,14 @@ public class Client {
 	 */
 	public static void timeBinarySearch(int startRange, int endRange, int size)
 	{
+		//Prints info about the current array being searched
 		printTimeInfo(false, startRange, endRange, size, TIME_SORTED);
-		
+		//Generate the array being searched
 		int[] array = arrayInit(startRange, endRange, size);
 		
 		//Calculates random number to search for
 		int num = (int) (Math.random() * endRange + startRange);
+		//Searches the array with binary sort
 		searchArray(array, BINARY_SEARCH, num, false);
 	}
 	

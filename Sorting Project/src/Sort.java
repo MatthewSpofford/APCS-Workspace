@@ -54,13 +54,17 @@ public class Sort {
 	 *            integer array
 	 **/
 	public static void insertionSort(int[] aSort) {
+		//Loop through the array and complete insertion sort
 		for (int i = 0; i < aSort.length; i++) {
+			//Create a partition from the current position
 			int maxIndex = i;
 			int value = aSort[i];
+			//Find the number greater than the current number in the partition
 			for (int j = i; j >= 0; j--) {
 				if (aSort[j] > aSort[i])
 					maxIndex = j;
 			}
+			//Insert the current number before the greatest number i the partition
 			for (int k = i; k > maxIndex; k--) {
 				aSort[k] = aSort[k - 1];
 			}
@@ -81,12 +85,15 @@ public class Sort {
 	 *            integer array
 	 **/
 	public static void selectionSort(int[] aSort) {
+		//Loop through the array and use selection sort
 		for (int i = 0; i < aSort.length; i++) {
 			int minIndex = i;
+			//Find the smallest value in the array
 			for (int j = i; j < aSort.length; j++) {
 				if (aSort[j] < aSort[minIndex])
 					minIndex = j;
 			}
+			//Swap the smallest value with the value at the current index
 			int temp = aSort[minIndex];
 			aSort[minIndex] = aSort[i];
 			aSort[i] = temp;
@@ -128,11 +135,12 @@ public class Sort {
 		}
 		//Else, merge two partitions together
 		else {
+			//Create two partitions from the center of the current partition
 			int aStart = start;
 			int aEnd = (end + start) / 2;
 			int bStart = (end + start) / 2;
 			int bEnd = end;
-			//Create two partitions to start merging
+			//Merge sort these newly created partitions
 			doMergeSort(array, aStart, aEnd);
 			doMergeSort(array, bStart, bEnd);
 			//Merges the two partitions
@@ -156,21 +164,33 @@ public class Sort {
 	 * @param bEnd - Is the end index of the B partition
 	 */
 	private static void merge(int[] array, int aStart, int aEnd, int bStart, int bEnd) {
+		//Stores array of merged partitions that will be replacing the two partitions in the given array
 		int[] output = new int[(aEnd - aStart) + (bEnd - bStart)];
 		int aIndex = aStart;
 		int bIndex = bStart;
 		int index = 0;
+		//While within the array being merged...
 		while (index < output.length) {
+			//If the first partition has been fully merged, merge the rest of the second partition
 			if (aIndex >= aEnd) {
 				for (int i = bIndex; i < bEnd; i++)
 					output[index++] = array[i];
-			} else if (bIndex >= bEnd) {
+			}
+			//If the second partition has been fully merged, merge the rest of the first partition
+			else if (bIndex >= bEnd) {
 				for (int i = aIndex; i < aEnd; i++)
 					output[index++] = array[i];
-			} else {
+			} 
+			//If both partitions are still being merged together...
+			else {
+				//If the number being looked at in the first partition is smaller than the one in the second, 
+				//add it into the merged array
 				if (array[aIndex] < array[bIndex]) {
 					output[index++] = array[aIndex++];
-				} else {
+				}
+				//If the number being looked at in the second partition is smaller than the one in the first,
+				//add it into the merged array
+				else {
 					output[index++] = array[bIndex++];
 				}
 			}
