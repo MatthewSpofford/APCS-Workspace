@@ -36,8 +36,8 @@ public class Client {
 		
 		timeAllSorts(1, 1000, 1000, TIME_RANDOM);
 		timeAllSorts(1, 5000, 5000, TIME_RANDOM);
-		timeAllSorts(1, 100000, 10000, TIME_RANDOM);
-		timeAllSorts(1, 500000, 50000, TIME_RANDOM);
+		timeAllSorts(1, 10000, 10000, TIME_RANDOM);
+		timeAllSorts(1, 50000, 50000, TIME_RANDOM);
 		timeAllButBubbleSorts(1, 100000, 100000, TIME_RANDOM);
 		timeAllButBubbleSorts(1, 500000, 500000, TIME_RANDOM);
 		timeMergeAndQuickSorts(1, 1000000, 1000000, TIME_RANDOM);
