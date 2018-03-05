@@ -1,5 +1,7 @@
 /******************************************************************
- * This class runs a sorting program, and outputs the required data.
+ * Program that generates various sizes of random integer arrays, 
+ * sorts them using each of the five sorts, timing each one. 
+ * This class also times linear and binary searches.
  * 
  * @author Matthew Spofford
  *
@@ -119,10 +121,11 @@ public class Client {
 		//Adds the sort or search title at the end of the 
 		if(sortOrSearch) {
 			System.out.println("Sort\t:\t Milliseconds");
+			System.out.println("---------------------------------");
 		} else {
-			System.out.println("Search :\t Milliseconds");
+			System.out.println("Search\t:\t Milliseconds :\tIndex");
+			System.out.println("-------------------------------------------");
 		}
-		System.out.println("---------------------------------");
 	}
 	
 	/**
@@ -486,7 +489,12 @@ public class Client {
 				System.out.println("Number Being Searched = " + num);
 				System.out.println("Index = " + index + "\n");
 			} else {
-				System.out.println(stopwatch.getElapsedTime() + " ms");
+				System.out.print(stopwatch.getElapsedTime() + " ms" + "\t:\t");
+				if(index != -1) {
+					System.out.println(index);
+				} else {
+					System.out.println("Not Found");
+				}
 			}
 		} else {
 			//The only reason for copy is so that binary search works correctly
@@ -505,9 +513,13 @@ public class Client {
 				System.out.println("Number Being Searched = " + num);
 				System.out.println("Index = " + index + "\n");
 			} else {
-				System.out.println(stopwatch.getElapsedTime() + " ms");
+				System.out.print(stopwatch.getElapsedTime() + " ms" + "\t:\t");
+				if(index != -1) {
+					System.out.println(index);
+				} else {
+					System.out.println("Not Found");
+				}
 			}
 		}
 	}
-
 }

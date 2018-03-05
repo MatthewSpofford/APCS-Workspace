@@ -13,12 +13,12 @@
  *******************************************************************/
 public class Search {
 	/**
-	 * Implements a Linear Search 
-	 * 1. Iterate through given list
-	 * 2. If the number you are searching for is found, 
-	 * 	  output the index and stop
-	 * 3. Else go back to step 1 until the list is fully iterated through
-	 * 4. Output negative 1 if the list has been fully iterated through
+	 * <p>Implements a Linear Search </p>
+	 * <p>1. Iterate through given list</p>
+	 * <p>2. If the number you are searching for is found, 
+	 * 	  output the index and stop</p>
+	 * <p>3. Else go back to step 1 until the list is fully iterated through</p>
+	 * <p>4. Output negative 1 if the list has been fully iterated through</p>
 	 * 
 	 * @param list
 	 *            - integer list to search in
@@ -40,20 +40,20 @@ public class Search {
 
 	/**
 	 * Implements a Binary Search 
-	 * 1. Set the min index to first array index, and max index to last
-	 *    array index (exclusive).
-	 * 2. Read middle number between the min and max index.
-	 *    a. If the number being searched for is less than the current 
-	 *       number, set the max index to the current position.
-	 *    b. If the number being searched for is greater than the current
-	 *       number, set the min index to one over from the current position.
-	 *    c. If the number being searched for is equal to the current 
-	 *       number, output the current numbers position and stop.
-	 * 3. Repeat step 2 until the difference between the min and max is
-	 *    less than or equal to zero.
-	 * 4. Output -1 and stop.
+	 * <p>1. Set the min index to first array index, and max index to last
+	 *    array index (exclusive).</p>
+	 * <p>2. Read middle number between the min and max index.
+	 *    <dd>a. If the number being searched for is less than the current 
+	 *       number, set the max index to the current position.</dd>
+	 *    <dd>b. If the number being searched for is greater than the current
+	 *       number, set the min index to one over from the current position.</dd>
+	 *    <dd>c. If the number being searched for is equal to the current 
+	 *       number, output the current numbers position and stop.</dd></p>
+	 * <p>3. Repeat step 2 until the difference between the min and max is
+	 *    less than or equal to zero.</p>
+	 * <p>4. Output -1 and stop.</p>
 	 * 
-	 * Pre: list must be sorted
+	 * <p>Pre: list must be sorted</p>
 	 * 
 	 * @param list
 	 *            - integer list to search in
