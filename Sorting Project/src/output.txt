@@ -26,9 +26,9 @@ Number Being Searched = -7
 Index = -1
 
 BINARY SEARCH: 
-Array = -20  -19  -19  -18  -17  -15  -13  -13  -10  -8  -2  -1  2  4  8  11  14  17  18  19
-Number Being Searched = -18
-Index = 3
+Array = -19  -18  -14  -14  -11  -8  -8  -7  -4  -1  4  4  6  7  7  8  8  12  17  17
+Number Being Searched = -9
+Index = -1
 
 
 -------------2. SORT TIMING-------------
