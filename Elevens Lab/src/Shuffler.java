@@ -7,12 +7,12 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 5;
 
 	/**
 	 * The number of values to shuffle.
 	 */
-	private static final int VALUE_COUNT = 4;
+	private static final int VALUE_COUNT = 52;
 
 	/**
 	 * Tests shuffling methods.
@@ -26,7 +26,9 @@ public class Shuffler {
 			values1[i] = i;
 			}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
+			Long prevTime = System.currentTimeMillis();
 			perfectShuffle(values1);
+			System.out.print(System.currentTimeMillis() - prevTime + " ms");
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values1.length; k++) {
 				System.out.print(" " + values1[k]);
@@ -42,7 +44,9 @@ public class Shuffler {
 			values2[i] = i;
 			}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
+			Long prevTime = System.currentTimeMillis();
 			selectionShuffle(values2);
+			System.out.print(System.currentTimeMillis() - prevTime + " ms");
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values2.length; k++) {
 				System.out.print(" " + values2[k]);
@@ -63,12 +67,12 @@ public class Shuffler {
 		int[] copy = new int[values.length];
 		
 		int k = 0;
-		for(int i = 0; i < values.length/2; i++) {
+		for(int i = 0; i < (values.length + 1)/2; i++) {
 			copy[k] = values[i];
 			k += 2;
 		}
 		k = 1;
-		for(int i = values.length/2; i < values.length; i++) {
+		for(int i = (values.length + 1)/2; i < values.length; i++) {
 			copy[k] = values[i];
 			k += 2;
 		}
