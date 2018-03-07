@@ -7,12 +7,12 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 5;
+	private static final int SHUFFLE_COUNT = 1;
 
 	/**
 	 * The number of values to shuffle.
 	 */
-	private static final int VALUE_COUNT = 52;
+	private static final int VALUE_COUNT = 4;
 
 	/**
 	 * Tests shuffling methods.
@@ -26,9 +26,10 @@ public class Shuffler {
 			values1[i] = i;
 			}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			Long prevTime = System.currentTimeMillis();
+			Long startTime = System.nanoTime();
 			perfectShuffle(values1);
-			System.out.print(System.currentTimeMillis() - prevTime + " ms");
+			Long endTime = System.nanoTime() - startTime;
+			System.out.print(endTime + " ns");
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values1.length; k++) {
 				System.out.print(" " + values1[k]);
@@ -41,12 +42,13 @@ public class Shuffler {
 								 " consecutive efficient selection shuffles:");
 		int[] values2 = new int[VALUE_COUNT];
 		for (int i = 0; i < values2.length; i++) {
-			values2[i] = i;
+			values2[i] = i+1;
 			}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			Long prevTime = System.currentTimeMillis();
+			Long startTime = System.nanoTime();
 			selectionShuffle(values2);
-			System.out.print(System.currentTimeMillis() - prevTime + " ms");
+			Long endTime = System.nanoTime() - startTime;
+			System.out.print(endTime + " ns");
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values2.length; k++) {
 				System.out.print(" " + values2[k]);
@@ -94,33 +96,11 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		int[] copy = new int[values.length];
-		boolean[] selected = new boolean[values.length];
-		boolean complete = false;
-		int index = 0;
-		
-		while(!complete && index < copy.length) {
-			complete = true;
-			for(int i = 0; i < selected.length; i++) {
-				if(!selected[i]) {
-					complete = false;
-					break;
-				}
-			}
-			
-			if(!complete) {
-				int pos = (int) (Math.random() * values.length);
-				while(selected[pos]) {
-					pos = (int) (Math.random() * values.length);
-				}
-				
-				selected[pos] = true;
-				copy[index++] = values[pos];
-			}
-		}
-		
-		for(int i = 0; i < copy.length; i++) {
-			values[i] = copy[i];
+		for(int i = values.length - 1; i > 0; i--) {
+			int newPos = (int) (Math.random() * i);
+			int temp = values[newPos];
+			values[newPos] = values[i];
+			values[i] = temp;
 		}
 	}
 }
