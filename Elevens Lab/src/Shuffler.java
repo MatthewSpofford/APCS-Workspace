@@ -60,7 +60,22 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] copy = new int[values.length];
+		
+		int k = 0;
+		for(int i = 0; i < values.length/2; i++) {
+			copy[k] = values[i];
+			k += 2;
+		}
+		k = 1;
+		for(int i = values.length/2; i < values.length; i++) {
+			copy[k] = values[i];
+			k += 2;
+		}
+		
+		for(int i = 0; i < copy.length; i++) {
+			values[i] = copy[i];
+		}
 	}
 
 	/**
@@ -75,6 +90,33 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] copy = new int[values.length];
+		boolean[] selected = new boolean[values.length];
+		boolean complete = false;
+		int index = 0;
+		
+		while(!complete && index < copy.length) {
+			complete = true;
+			for(int i = 0; i < selected.length; i++) {
+				if(!selected[i]) {
+					complete = false;
+					break;
+				}
+			}
+			
+			if(!complete) {
+				int pos = (int) (Math.random() * values.length);
+				while(selected[pos]) {
+					pos = (int) (Math.random() * values.length);
+				}
+				
+				selected[pos] = true;
+				copy[index++] = values[pos];
+			}
+		}
+		
+		for(int i = 0; i < copy.length; i++) {
+			values[i] = copy[i];
+		}
 	}
 }
