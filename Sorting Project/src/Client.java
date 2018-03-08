@@ -57,6 +57,7 @@ public class Client {
 		timeLinearSearch(1, 5000000, 5000000, TIME_RANDOM);
 		timeLinearSearch(1, 5000000, 5000000, TIME_SORTED);
 		timeBinarySearch(1, 5000000, 5000000);
+		
 	}
 	
 	/**

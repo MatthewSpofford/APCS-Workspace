@@ -40,15 +40,22 @@ public class Shuffler {
 
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
+		
+//		int[] array = {1, 2, 3, 4};
+//		int[] copy = array.clone();
+//		while(!(copy[0] == 4 && copy[1] == 3 && copy[2] == 2 && copy[3] == 1)) {
+//			copy = array.clone();
+//			selectionShuffle(copy);
+//			System.out.println("\n\n");
+//		}
+//		System.out.println(copy[0] + "" + copy[1] + "" + copy[2] + "" + copy[3]);
+		
 		int[] values2 = new int[VALUE_COUNT];
 		for (int i = 0; i < values2.length; i++) {
 			values2[i] = i+1;
 			}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			Long startTime = System.nanoTime();
 			selectionShuffle(values2);
-			Long endTime = System.nanoTime() - startTime;
-			System.out.print(endTime + " ns");
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values2.length; k++) {
 				System.out.print(" " + values2[k]);
@@ -96,8 +103,14 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		for(int i = values.length - 1; i > 0; i--) {
-			int newPos = (int) (Math.random() * i);
+		//$ - 1234|
+		//0 - 423|1
+		//1 - 43|21
+		//1 - 4|321
+		//0 - |4321
+		
+		for(int i = values.length - 1; i >= 0; i--) {
+			int newPos = (int) (Math.random() * (i + 1));
 			int temp = values[newPos];
 			values[newPos] = values[i];
 			values[i] = temp;
