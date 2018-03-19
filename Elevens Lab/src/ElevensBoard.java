@@ -33,14 +33,25 @@ public class ElevensBoard extends Board {
 	 * Flag used to control debugging print statements.
 	 */
 	private static final boolean I_AM_DEBUGGING = false;
-
-
+	
 	/**
 	 * Creates a new <code>ElevensBoard</code> instance.
 	 */
 	 public ElevensBoard() {
 	 	super(BOARD_SIZE, RANKS, SUITS, POINT_VALUES);
 	 }
+	 
+	 /**
+		 * Deal cards to this board to start the game.
+		 */
+		public void dealCards()
+		{
+			for (int k = 0; k < super.size(); k++) {
+				if(super.cardAt(k) == null) {
+					super.deal(k);
+				}
+			}
+		}
 
 	/**
 	 * Determines if the selected cards form a valid group for removal.

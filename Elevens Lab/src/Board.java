@@ -22,6 +22,8 @@ public abstract class Board {
 		this.ranks = ranks;
 		this.suits = suits;
 		this.pointValues = pointValues;
+		
+		deck.shuffle();
 	}
 
 	/**
@@ -57,6 +59,11 @@ public abstract class Board {
 	}
 
 	/**
+	 * Deal cards to this board to start the game.
+	 */
+	public abstract void dealCards();
+	
+	/**
 	 * Accesses the deck's size.
 	 * @return the number of undealt cards left in the deck.
 	 */
@@ -85,15 +92,6 @@ public abstract class Board {
 		return s;
 	}
 	
-	public void deal()
-	{
-		for(int i = 0; i < cards.length && !deck.isEmpty(); i++)
-		{
-			if(cards[i] == null) {
-				cards[i] = deck.deal();
-			}
-		}
-	}
 	/**
 	 * Determines if the selected cards form a valid group for removal.
 	 * 
