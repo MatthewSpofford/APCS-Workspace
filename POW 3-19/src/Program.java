@@ -2,16 +2,17 @@
 public class Program {
 	
 	private static final double[] base = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-	private static double[][] array = new double[1000][9];
+	private static double[][] array = new double[362880][9];
 	
 	public static void main(String[] args) {
 		
 		int currentRowIndex = 0;
+		int result = -1;
 		
 		while(currentRowIndex < array.length) {
 			initArray(currentRowIndex);
 			
-			System.out.println(	"A: " + array[currentRowIndex][0] + ", " +
+			System.out.println(	currentRowIndex + "\tA: " + array[currentRowIndex][0] + ", " +
 								"B: " + array[currentRowIndex][1] + ", " +
 								"C: " + array[currentRowIndex][2] + ", " +
 								"D: " + array[currentRowIndex][3] + ", " +
@@ -21,32 +22,16 @@ public class Program {
 								"H: " + array[currentRowIndex][7] + ", " +
 								"I: " + array[currentRowIndex][8] + " " );
 			
+			if(followsEquation(currentRowIndex)) {
+				result = currentRowIndex;
+				break;
+			}
+			
 			currentRowIndex++;
 		}
 		
 		System.out.println("\nANSWER:");
 		
-		currentRowIndex = 0;
-		
-		int result = 0;
-		
-		while(currentRowIndex < array.length) {
-			if(followsEquation(currentRowIndex)) {
-				System.out.println(	"A: " + array[currentRowIndex][0] + ", " +
-									"B: " + array[currentRowIndex][1] + ", " +
-									"C: " + array[currentRowIndex][2] + ", " +
-									"D: " + array[currentRowIndex][3] + ", " +
-									"E: " + array[currentRowIndex][4] + ", " +
-									"F: " + array[currentRowIndex][5] + ", " +
-									"G: " + array[currentRowIndex][6] + ", " +
-									"H: " + array[currentRowIndex][7] + ", " +
-									"I: " + array[currentRowIndex][8] + " " );
-				result = currentRowIndex;
-				
-				break;
-			}
-			currentRowIndex++;
-		}
 		
 		System.out.println(result);
 	}
@@ -92,7 +77,7 @@ public class Program {
 							(array[row][1] / (array[row][5] * 10 + array[row][6])) + 
 							(array[row][2] / (array[row][7] * 10 + array[row][7]));
 		
-		System.out.println(row + ": " + result);
+		System.out.println("\t " + result);
 		
 		if(result == 1.0)
 			return true;
