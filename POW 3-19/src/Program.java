@@ -30,10 +30,18 @@ public class Program {
 			currentRowIndex++;
 		}
 		
-		System.out.println("\nANSWER:");
+		System.out.println("\nANSWER:\n");
 		
-		
-		System.out.println(result);
+		System.out.println(	currentRowIndex + "\tA: " + array[currentRowIndex][0] + ", " +
+												"B: " + array[currentRowIndex][1] + ", " +
+												"C: " + array[currentRowIndex][2] + ", " +
+												"D: " + array[currentRowIndex][3] + ", " +
+												"E: " + array[currentRowIndex][4] + ", " +
+												"F: " + array[currentRowIndex][5] + ", " +
+												"G: " + array[currentRowIndex][6] + ", " +
+												"H: " + array[currentRowIndex][7] + ", " +
+												"I: " + array[currentRowIndex][8] + " " );
+
 	}
 	
 	private static void initArray(int row) {
