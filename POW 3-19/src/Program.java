@@ -69,6 +69,7 @@ public class Program {
 				double[] prevArrayRef = array[i];
 				if(Arrays.equals(reference, prevArrayRef)) {
 					unique = false;
+					break;
 				}
 				else {
 					unique = true;
