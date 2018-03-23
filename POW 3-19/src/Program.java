@@ -49,7 +49,6 @@ public class Program {
 	private static void initArray(int row) {
 		
 		boolean unique = false;
-		double[][] reference = array;
 		
 		while(!unique) {
 			
@@ -64,12 +63,15 @@ public class Program {
 				array[row][i] = temp;
 			}
 			
+			double[] reference = array[row];
+			unique = true;
 			for(int i = 0; i < row; i++) {
-				if(Arrays.equals(array[i], array[row])) {
-					unique = true;
+				double[] prevArrayRef = array[i];
+				if(Arrays.equals(reference, prevArrayRef)) {
+					unique = false;
 				}
 				else {
-					unique = false;
+					unique = true;
 				}
 			}
 		}
@@ -80,7 +82,9 @@ public class Program {
 							(array[row][1] / (array[row][5] * 10 + array[row][6])) + 
 							(array[row][2] / (array[row][7] * 10 + array[row][7]));
 		
-		System.out.println("\t " + result);
+		System.out.println("\t " 	+ (int)array[row][0] + "/" + (int)array[row][3] + (int)array[row][4] + " + "
+									+ (int)array[row][1] + "/" + (int)array[row][5] + (int)array[row][6] + " + "
+									+ (int)array[row][2] + "/" + (int)array[row][7] + (int)array[row][8] + " = " + result);
 		
 		if(result == 1.0)
 			return true;
