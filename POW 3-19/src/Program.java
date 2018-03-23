@@ -46,36 +46,25 @@ public class Program {
 	
 	private static void initArray(int row) {
 		
-		boolean[] used = new boolean[base.length];
 		boolean unique = false;
 		double[][] reference = array;
 		
 		while(!unique) {
 			
 			for(int i = 0; i < array[row].length; i++) {
-				int pos = (int) (Math.random() * 9);
-				
-				while(used[pos]) {
-					pos = (int) (Math.random() * 9);
-				}
-				
-				used[pos] = true;
-				array[row][i] = base[pos];
+				array[row][i] = base[i];
+			}
+			
+			for(int i = array[row].length - 1; i >= 0; i--) {
+				int newPos = (int) (Math.random() * (i + 1));
+				double temp = array[row][newPos];
+				array[row][newPos] = array[row][i];
+				array[row][i] = temp;
 			}
 			
 			unique = true;
 			for(int i = 0; i < row; i++) {
-				unique = false;
-				for(int j = 0; j < array[row].length; j++) {
-					if(array[row][j] != array[i][j]) {
-						unique = true;
-						break;
-					}
-				}
-			}
-			
-			for(int i = 0; i < used.length; i++) {
-				used[i] = false;
+				//TODO fix this
 			}
 		}
 	}
