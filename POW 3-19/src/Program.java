@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class Program {
 	
@@ -62,9 +64,13 @@ public class Program {
 				array[row][i] = temp;
 			}
 			
-			unique = true;
 			for(int i = 0; i < row; i++) {
-				//TODO fix this
+				if(Arrays.equals(array[i], array[row])) {
+					unique = true;
+				}
+				else {
+					unique = false;
+				}
 			}
 		}
 	}
