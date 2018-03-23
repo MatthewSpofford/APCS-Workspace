@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Program {
@@ -79,15 +80,17 @@ public class Program {
 	}
 	
 	private static boolean followsEquation(int row) {
-		double result = 	(array[row][0] / (array[row][3] * 10 + array[row][4])) + 
-							(array[row][1] / (array[row][5] * 10 + array[row][6])) + 
-							(array[row][2] / (array[row][7] * 10 + array[row][7]));
+		double ade = (array[row][0] / (array[row][3] * 10 + array[row][4]));
+		double bfg = (array[row][1] / (array[row][5] * 10 + array[row][6]));
+		double chi = (array[row][2] / (array[row][7] * 10 + array[row][7]));
+		BigDecimal result = new BigDecimal(ade).add(new BigDecimal(bfg).add(new BigDecimal(chi)));
 		
 		System.out.println("\t " 	+ (int)array[row][0] + "/" + (int)array[row][3] + (int)array[row][4] + " + "
 									+ (int)array[row][1] + "/" + (int)array[row][5] + (int)array[row][6] + " + "
 									+ (int)array[row][2] + "/" + (int)array[row][7] + (int)array[row][8] + " = " + result);
+		System.out.println("\t " 	+ ade + " + " + bfg + " + " + chi + " = " + result); 
 		
-		if(result == 1.0)
+		if(result.equals(new BigDecimal(1.0)))
 			return true;
 		else
 			return false;
