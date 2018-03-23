@@ -32,15 +32,15 @@ public class Program {
 		
 		System.out.println("\nANSWER:\n");
 		
-		System.out.println(	currentRowIndex + "\tA: " + array[currentRowIndex][0] + ", " +
-												"B: " + array[currentRowIndex][1] + ", " +
-												"C: " + array[currentRowIndex][2] + ", " +
-												"D: " + array[currentRowIndex][3] + ", " +
-												"E: " + array[currentRowIndex][4] + ", " +
-												"F: " + array[currentRowIndex][5] + ", " +
-												"G: " + array[currentRowIndex][6] + ", " +
-												"H: " + array[currentRowIndex][7] + ", " +
-												"I: " + array[currentRowIndex][8] + " " );
+		System.out.println(	result + "\tA: " + array[result][0] + ", " +
+												"B: " + array[result][1] + ", " +
+												"C: " + array[result][2] + ", " +
+												"D: " + array[result][3] + ", " +
+												"E: " + array[result][4] + ", " +
+												"F: " + array[result][5] + ", " +
+												"G: " + array[result][6] + ", " +
+												"H: " + array[result][7] + ", " +
+												"I: " + array[result][8] + " " );
 
 	}
 	
