@@ -38,6 +38,7 @@ public abstract class Board {
 			System.out.println(deck);
 			System.out.println("----------");
 		}
+		
 		dealMyCards();
 	}
 
@@ -177,6 +178,7 @@ public abstract class Board {
 	 * Deal cards to this board to start the game.
 	 */
 	private void dealMyCards() {
+		
 		for (int k = 0; k < cards.length; k++) {
 			cards[k] = deck.deal();
 		}

@@ -23,9 +23,9 @@ import java.util.ArrayList;
 public class CardGameGUI extends JFrame implements ActionListener {
 
 	/** Height of the game frame. */
-	private static final int DEFAULT_HEIGHT = 302;
+	private static final int DEFAULT_HEIGHT = 400;
 	/** Width of the game frame. */
-	private static final int DEFAULT_WIDTH = 800;
+	private static final int DEFAULT_WIDTH = 900;
 	/** Width of a card. */
 	private static final int CARD_WIDTH = 73;
 	/** Height of a card. */
@@ -52,7 +52,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 	private static final int LABEL_LEFT = 540;
 	/** Distance between the tops of the "n undealt cards" and
 	 *  the "You lose/win" labels. */
-	private static final int LABEL_HEIGHT_INC = 35;
+	private static final int LABEL_HEIGHT_INC = 90;
 
 	/** The board (Board subclass). */
 	private Board board;

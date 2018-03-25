@@ -75,15 +75,15 @@ public class ElevensBoard extends Board {
 		final String QUEEN = RANKS[11];
 		final String KING = RANKS[12];
 		
-		for(int i = 0; i < this.size(); i++) {
-			for(int j = 0; j < this.size(); j++) {
-				if(i == j && j + 1 < this.size()) {
+		for(int i = 0; i < this.cardIndexes().size(); i++) {
+			for(int j = 0; j < this.cardIndexes().size(); j++) {
+				if(i == j && j + 1 < this.cardIndexes().size()) {
 					j++;
 				}
 				
 				List<Integer> cards = new ArrayList<Integer>();
-				cards.add(i);
-				cards.add(j);
+				cards.add(cardIndexes().get(i));
+				cards.add(cardIndexes().get(j));
 				
 				if(containsPairSum11(cards)) {
 					return true;
@@ -97,6 +97,10 @@ public class ElevensBoard extends Board {
 		
 		for(int i = 0; i < this.size(); i++) {
 			Card card = this.cardAt(i);
+			
+			if(card == null) {
+				continue;
+			}
 			
 			if(card.rank().equals(JACK)) {
 				foundJack = true;
@@ -153,33 +157,29 @@ public class ElevensBoard extends Board {
 		final String KING = RANKS[12];
 		
 		if(selectedCards.size() == 3) {
-			Card card1 = this.cardAt(selectedCards.get(0));
-			Card card2 = this.cardAt(selectedCards.get(1));
-			Card card3 = this.cardAt(selectedCards.get(2));
+			Card[] cards = new Card[3]; 
+			cards[0] = this.cardAt(selectedCards.get(0));
+			cards[1] = this.cardAt(selectedCards.get(1));
+			cards[2] = this.cardAt(selectedCards.get(2));
 			
-			if((card1.rank().equals(JACK) &&
-			    card2.rank().equals(QUEEN) &&
-			    card3.rank().equals(KING)) 
+			boolean foundJack = false;
+			boolean foundQueen = false;
+			boolean foundKing = false;
 			
-			|| (card1.rank().equals(JACK) &&
-				card2.rank().equals(KING) &&
-				card3.rank().equals(QUEEN))
-					
-			|| (card1.rank().equals(QUEEN) &&
-				card2.rank().equals(JACK) &&
-				card3.rank().equals(KING))
+			for(int i = 0; i < cards.length; i++) {
+				String rank = cards[i].rank();
+				if(rank.equals(JACK)) {
+					foundJack = true;
+				}
+				if (rank.equals(QUEEN)) {
+					foundQueen = true;
+				}
+				if (rank.equals(KING)) {
+					foundKing = true;
+				}
+			}
 			
-			|| (card1.rank().equals(KING) &&
-				card2.rank().equals(JACK) &&
-				card3.rank().equals(QUEEN))
-			
-			|| (card1.rank().equals(QUEEN) &&
-				card2.rank().equals(KING) &&
-				card3.rank().equals(JACK)) 
-			
-			|| (card1.rank().equals(KING) &&
-				card2.rank().equals(QUEEN) &&
-				card3.rank().equals(JACK))) {
+			if(foundJack && foundQueen && foundKing) {
 				return true;
 			}
 		}
