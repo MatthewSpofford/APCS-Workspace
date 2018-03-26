@@ -71,10 +71,6 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		
-		final String JACK = RANKS[10];
-		final String QUEEN = RANKS[11];
-		final String KING = RANKS[12];
-		
 		for(int i = 0; i < this.cardIndexes().size(); i++) {
 			for(int j = 0; j < this.cardIndexes().size(); j++) {
 				if(i == j && j + 1 < this.cardIndexes().size()) {
@@ -91,30 +87,19 @@ public class ElevensBoard extends Board {
 			}
 		}
 		
-		boolean foundKing = false;
-		boolean foundQueen = false;
-		boolean foundJack = false;
-		
 		for(int i = 0; i < this.size(); i++) {
-			Card card = this.cardAt(i);
-			
-			if(card == null) {
-				continue;
+			for(int j = i + 1; j < this.size(); j++) {
+				for(int k = j + 1; k < this.size(); k++) {
+					List<Integer> cards = new ArrayList<Integer>();
+					cards.add(i);
+					cards.add(j);
+					cards.add(k);
+					
+					if(containsJQK(cards)) {
+						return true;
+					}
+				}
 			}
-			
-			if(card.rank().equals(JACK)) {
-				foundJack = true;
-			}
-			if(card.rank().equals(QUEEN)) {
-				foundQueen = true;
-			}
-			if(card.rank().equals(KING)) {
-				foundKing = true;
-			}
-		}
-		
-		if(foundJack && foundQueen && foundKing) {
-			return true;
 		}
 		
 		return false;
