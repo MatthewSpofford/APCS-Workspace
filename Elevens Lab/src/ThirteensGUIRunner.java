@@ -9,7 +9,7 @@ public class ThirteensGUIRunner {
 	 * @param args is not used.
 	 */
 	public static void main(String[] args) {
-		Board board = new ElevensBoard();
+		Board board = new ThirteensBoard();
 		CardGameGUI gui = new CardGameGUI(board);
 		gui.displayGame();
 	}
