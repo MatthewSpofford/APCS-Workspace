@@ -87,13 +87,13 @@ public class ElevensBoard extends Board {
 			}
 		}
 		
-		for(int i = 0; i < this.size(); i++) {
-			for(int j = i + 1; j < this.size(); j++) {
-				for(int k = j + 1; k < this.size(); k++) {
+		for(int i = 0; i < this.cardIndexes().size(); i++) {
+			for(int j = i + 1; j < this.cardIndexes().size(); j++) {
+				for(int k = j + 1; k < this.cardIndexes().size(); k++) {
 					List<Integer> cards = new ArrayList<Integer>();
-					cards.add(i);
-					cards.add(j);
-					cards.add(k);
+					cards.add(this.cardIndexes().get(i));
+					cards.add(this.cardIndexes().get(j));
+					cards.add(this.cardIndexes().get(k));
 					
 					if(containsJQK(cards)) {
 						return true;

@@ -44,9 +44,9 @@ public class ThirteensBoard extends Board {
 
 	/**
 	 * Determines if the selected cards form a valid group for removal.
-	 * In Elevens, the legal groups are (1) a pair of non-face cards
-	 * whose values add to 11, and (2) a group of three cards consisting of
-	 * a jack, a queen, and a king in some order.
+	 * In Thirteens, the legal groups are: 
+	 * <p>(1) a pair of non-face cards whose values add to 13</p> 
+	 * <p>(2) a single card consisting of a king.</p>
 	 * @param selectedCards the list of the indices of the selected cards.
 	 * @return true if the selected cards form a valid group for removal;
 	 *         false otherwise.
@@ -62,9 +62,9 @@ public class ThirteensBoard extends Board {
 
 	/**
 	 * Determine if there are any legal plays left on the board.
-	 * In Elevens, there is a legal play if the board contains
-	 * (1) a pair of non-face cards whose values add to 11, or (2) a group
-	 * of three cards consisting of a jack, a queen, and a king in some order.
+	 * In Thirteens, the legal groups are: 
+	 * <p>(1) a pair of non-face cards whose values add to 13</p> 
+	 * <p>(2) a single card consisting of a king.</p>
 	 * @return true if there is a legal play left on the board;
 	 *         false otherwise.
 	 */
@@ -87,7 +87,7 @@ public class ThirteensBoard extends Board {
 			}
 		}
 		
-		for(int i = 0; i < this.size(); i++) {
+		for(int i : this.cardIndexes()) {
 			List<Integer> card = new ArrayList<Integer>();
 			card.add(i);
 			
