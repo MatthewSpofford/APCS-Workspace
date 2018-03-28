@@ -42,6 +42,7 @@ public abstract class Board {
 		dealMyCards();
 	}
 
+	//THIS IS A TEST
 	/**
 	 * Start a new game by shuffling the deck and
 	 * dealing some cards to this board.
