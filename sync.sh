@@ -1,4 +1,4 @@
-#Functions as a sync program
+#Functions as a sync program for APCS Workspace
 
 git pull origin master
 git mergetool
