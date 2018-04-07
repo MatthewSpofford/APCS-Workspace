@@ -11,17 +11,16 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 	public CrazyThirteensBoard() {
 		super();
 	}
-
+	
 	/**
-	 * Determine whether or not the game has been won,
-	 * i.e. neither the board nor the deck has any more cards.
-	 * @return true when the current game has been won;
-	 *         false otherwise.
+	 * Start a new game by shuffling the deck and
+	 * dealing some cards to this board.
 	 */
 	@Override
-	public boolean gameIsWon() {
-		
-		return super.gameIsWon();
+	public void newGame() {
+		super.newGame();
+		sixRemovalCount = 0;
+		sevenRemovalCount = 0;
 	}
 	
 	/**
@@ -71,7 +70,7 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 			//Checks to see if this is the final six and seven pair
 			//so that the game can continue.
 			if(selectedCards.size() == 2 && 
-			(sixRemovalCount != 3 && sevenRemovalCount != 3)) {
+			!(sixRemovalCount == 3 && sevenRemovalCount == 3)) {
 				Card card1 = this.cardAt(selectedCards.get(0));
 				Card card2 = this.cardAt(selectedCards.get(1));
 				
