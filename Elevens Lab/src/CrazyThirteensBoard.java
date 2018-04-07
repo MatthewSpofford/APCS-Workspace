@@ -71,7 +71,7 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 			//Checks to see if this is the final six and seven pair
 			//so that the game can continue.
 			if(selectedCards.size() == 2 && 
-			(sixRemovalCount == 3 && sevenRemovalCount == 3)) {
+			(sixRemovalCount != 3 && sevenRemovalCount != 3)) {
 				Card card1 = this.cardAt(selectedCards.get(0));
 				Card card2 = this.cardAt(selectedCards.get(1));
 				
@@ -104,17 +104,5 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 		{
 			return false;
 		}
-	}
-	
-	private boolean noSevenSixPairsLeft()
-	{
-		boolean hasSix = false;
-		boolean hasSeven = false;
-		
-		for(int i = 0; i < super.deckSize(); i++) {
-			
-		}
-		
-		return hasSeven && hasSix;
 	}
 }
