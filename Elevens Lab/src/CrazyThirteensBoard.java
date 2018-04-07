@@ -2,8 +2,8 @@ import java.util.List;
 
 public class CrazyThirteensBoard extends ThirteensBoard {
 	
-	int sixRemovalCount = 0;	//Keeps track of how many sixes were removed
-	int sevenRemovalCount = 0;	//Keeps track of how many sevens were removed
+	private int sixRemovalCount = 0;	//Keeps track of how many sixes were removed
+	private int sevenRemovalCount = 0;	//Keeps track of how many sevens were removed
 	
 	/**
 	 * Creates a new <code>CrazyThirteensBoard</code> instance.
@@ -67,13 +67,16 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 	public boolean isLegal(List<Integer> selectedCards) {
 		if(super.isLegal(selectedCards))
 		{
-			//Checks if the board is greater than 2, so that winning the game is possible
-			if(selectedCards.size() == 2) {
+			//This begins the check for the six and seven pair.
+			//Checks to see if this is the final six and seven pair
+			//so that the game can continue.
+			if(selectedCards.size() == 2 && 
+			(sixRemovalCount == 3 && sevenRemovalCount == 3)) {
 				Card card1 = this.cardAt(selectedCards.get(0));
 				Card card2 = this.cardAt(selectedCards.get(1));
 				
 				//Checking if one card in the pair contains a 6
-				//7 is implied, since isLegal would not succeed
+				//7 is implied, since isLegal would not succeed.
 				if(card1.pointValue() == 6 || card2.pointValue() == 6) {
 					
 					//Randomly select a card to keep
