@@ -3,6 +3,7 @@
 git pull origin master
 git mergetool
 git add .
+git status
 read -e -p "Commit Name: " var
 git commit -a -m "$var"
 git push origin master
