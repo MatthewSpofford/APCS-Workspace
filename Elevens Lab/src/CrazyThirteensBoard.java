@@ -54,9 +54,9 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 	 * In Thirteens, the legal groups are: 
 	 * <p>(1) a pair of non-face cards whose values add to 13.
 	 * If the pair selected contains a face card, put the other card back into the deck.</p> 
-	 * <p>(1-a) if the pair selected contains a 6 and 7, and the board does not have 2 cards 
-	 * remaining, then one of the cards is randomly kept. Both cards in the final 6 and 
-	 * 7 pair will be removed. This adds a slight challenege because if you run out of 6s or 7s
+	 * <p>(1-a) if the pair selected contains a 6 and 7, then one of the cards is randomly 
+	 * kept. Both cards in the final 6 and 7 pair will be removed. This adds a slight 
+	 * challenege because if you run out of 6s or 7s
 	 * before creating all of the needed pairs, then you lose the game.</p>
 	 * <p>(2) a single card consisting of a king.</p>
 	 * @param selectedCards the list of the indices of the selected cards.
