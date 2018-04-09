@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * The ElevensBoard class represents the board in a game of Elevens.
+ * The ThirteensBoard class represents the board in a game of Thirteens.
  */
 public class ThirteensBoard extends Board {
 
