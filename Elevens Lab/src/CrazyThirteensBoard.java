@@ -91,6 +91,7 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 					double cardRemovedPercent = Math.random();
 					if(cardRemovedPercent > 0.5) {
 						selectedCards.remove(0);
+						
 						if(card1.pointValue() == 6) {
 							sixRemovalCount++;
 						} else {
