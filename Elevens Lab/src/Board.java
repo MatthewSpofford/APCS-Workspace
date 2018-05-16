@@ -112,6 +112,16 @@ public abstract class Board {
 	}
 
 	/**
+	 * Removes the specified card from the board
+	 * @param pos is the position of the card being removed.
+	 * This position must be on the board (0 to size-1)
+	 * in order to be successful.
+	 */
+	public void removeCardFromBoard(int pos) {
+		cards[pos] = null;
+	}
+	
+	/**
 	 * Gets the indexes of the actual (non-null) cards on the board.
 	 *
 	 * @return a List that contains the locations (indexes)

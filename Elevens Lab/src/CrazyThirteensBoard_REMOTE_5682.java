@@ -162,22 +162,6 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 			//7 is implied, since isLegal would not succeed.
 			if(card1.pointValue() == 6 || card2.pointValue() == 6) {
 				
-<<<<<<< HEAD
-				//Checking if one card in the pair contains a 6
-				//7 is implied, since isLegal would not succeed.
-				if(card1.pointValue() == 6 || card2.pointValue() == 6) {
-					
-					//Randomly select a card to keep
-					double cardRemovedPercent = Math.random();
-					if(cardRemovedPercent > 0.5) {
-						selectedCards.remove(0);
-						
-						if(card1.pointValue() == 6) {
-							sixRemovalCount++;
-						} else {
-							sevenRemovalCount++;
-						}
-=======
 				//Randomly select a card to keep
 				double cardRemovedPercent = Math.random();
 				if(cardRemovedPercent > 0.5) {
@@ -191,7 +175,6 @@ public class CrazyThirteensBoard extends ThirteensBoard {
 					selectedCards.remove(1);
 					if(card2.pointValue() == 6) {
 						sixRemovalCount++;
->>>>>>> c6481f1489faab20152ece29062c44f6d1036c63
 					} else {
 						sevenRemovalCount++;
 					}
